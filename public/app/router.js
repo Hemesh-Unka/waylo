@@ -12,6 +12,7 @@ define(function(require, exports, module) {
 	
 		// Set up the shelf
 		this.basket = new s.Collections.Basket();
+		this.basket.fetch();
 	
 		// Set up the product preview
 		this.product = new s.Models.Product();

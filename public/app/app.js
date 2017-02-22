@@ -5,8 +5,6 @@ define("app",["backbone.layoutmanager"], function(r) {
   var app = {
     // The root path to run the application.
     root: "/",
-    // The API root of the program
-    //apiRoot: "waylo-api.herokuapp.com"
   };
 
   // Configure LayoutManager with Backbone Boilerplate defaults.
