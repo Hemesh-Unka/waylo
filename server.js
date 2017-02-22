@@ -60,7 +60,7 @@ app.get('/api/catalog/search', function (req, res) {
 	});
 });
 
-app.get('/catalog/products/:product', function (req, res) {
+app.get('/api/catalog/products/:product', function (req, res) {
 	Item.findOne({ 'title': req.params.product}, function(err, docs) {
 	    if (err) { 
 			handleError(res, err.message, "Failed to find anything.");
@@ -83,7 +83,7 @@ app.get('/catalog/clean', function (req, res) {
 });
 */
 
-app.get('/catalog/autosuggest', function (req, res) {
+app.get('/api/catalog/autosuggest', function (req, res) {
 
 	var q = req.query.q;
 						
