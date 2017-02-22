@@ -6,13 +6,13 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 // Models
 		return s.Product = n.Model.extend({
 			idAttribute: "title",
-			urlRoot: 'http://waylo-api.herokuapp.com/catalog/products/',
+			urlRoot: 'api/catalog/products/',
 		}),
 
 // Collections
 		o.Basket = n.Collection.extend({
 			model: s.Product,
-			url: 'http://waylo-api.herokuapp.com/catalog/search',
+			url: 'api/catalog/search',
 		}),
 
 // Views
