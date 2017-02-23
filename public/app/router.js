@@ -42,7 +42,7 @@ define(function(require, exports, module) {
 		})
 	
 		this.product.fetch({
-						
+			
 			success: function(response) {
 	
 				app.layout.setView(
