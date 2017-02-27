@@ -52,19 +52,19 @@ transition: all .3s ease;
 }
 
 .ppInner {
-	max-width: 980px!important;
-    overflow: initial;
-    min-width: 300px!important;
-    width: 100%;
-    -webkit-transition: all .2s ease;
-    -moz-transition: all .2s ease;
-    -o-transition: all .2s ease;
-    -ms-transition: all .2s ease;
-    transition: all .2s ease;
+max-width: 980px!important;
+overflow: initial;
+min-width: 300px!important;
+width: 100%;
+-webkit-transition: all .2s ease;
+-moz-transition: all .2s ease;
+-o-transition: all .2s ease;
+-ms-transition: all .2s ease;
+transition: all .2s ease;
 }
 
 .ppContent {
-    background: #fff;
+background: #fff;
 display: block;
 width: 640px;
 z-index: 9999999;
@@ -147,6 +147,9 @@ margin-bottom: 40px;
 <script id="productPreviewTemplate" class="hide" type="text/template">
 <div class='ppInner'>	
 	<div class="ppContent">	
+		<div class "close">
+			X
+		</div>
 	<ul>
 		<li><a href="search/<%= title %>"><%= title %></a></li>
 		<li><%= unit %></li>
