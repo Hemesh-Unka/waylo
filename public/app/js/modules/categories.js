@@ -5,11 +5,11 @@ define("js/modules/categories", ["jquery", "underscore", "backbone", "app"], fun
 		p = {};
 
 	// Models
-	return s.Product = n.Model.extend({
-		idAttribute: "title",
-		urlRoot: 'api/catalog/products/',
+	return s.MenuItem = n.Model.extend({
+	
 	}),
 
+	
 	
 	
 	}), {

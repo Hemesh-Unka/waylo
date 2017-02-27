@@ -22,10 +22,6 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 		// Individual Product View
 		u.productPreviewView = n.View.extend({
 			
-			tagName: 'div',
-			
-			className: 'show',
-			
 			initialize : function() {
 				this.listenTo(this.model, 'reset update', this.render);
 			},
