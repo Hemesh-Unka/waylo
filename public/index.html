@@ -21,75 +21,6 @@
 .suggestions ol {
 	list-style-type: none;
 }
-
-.show {
-position: fixed;
-left: 0;
-right: 0;
-top: 0;
-bottom: 0;
-padding: 16px;
-background-color: rgba(0,0,0,.4);
-overflow: auto;
-z-index: 9999999;
-display: -webkit-box;
-display: -moz-box;
-display: -ms-box;
-display: -webkit-flex;
-display: box;
-display: flex;
--webkit-box-pack: center;
--moz-box-pack: center;
--o-box-pack: center;
--ms-box-pack: center;
--webkit-justify-content: center;
-justify-content: center;
--webkit-transition: all .3s ease;
--moz-transition: all .3s ease;
--o-transition: all .3s ease;
--ms-transition: all .3s ease;
-transition: all .3s ease;
-}
-
-.ppInner {
-max-width: 980px!important;
-overflow: initial;
-min-width: 300px!important;
-width: 100%;
--webkit-transition: all .2s ease;
--moz-transition: all .2s ease;
--o-transition: all .2s ease;
--ms-transition: all .2s ease;
-transition: all .2s ease;
-}
-
-.ppContent {
-background: #fff;
-display: block;
-width: 640px;
-z-index: 9999999;
-background: #fff;
--webkit-border-radius: 5px;
-border-radius: 5px;
-position: relative;
-display: -webkit-box;
-display: -moz-box;
-display: -ms-box;
-display: -webkit-flex;
-display: box;
-display: flex;
--webkit-box-orient: vertical;
--moz-box-orient: vertical;
--o-box-orient: vertical;
--ms-box-orient: vertical;
--webkit-flex-direction: column;
-flex-direction: column;
-overflow: hidden;
--webkit-box-shadow: 0 1px 5px #666;
-box-shadow: 0 1px 5px #666;
-margin-bottom: 40px;
-}
-
 </style>
 
   <!--[if lt IE 9]>
@@ -145,19 +76,14 @@ margin-bottom: 40px;
 </script>
 
 <script id="productPreviewTemplate" class="hide" type="text/template">
-<div class='ppInner'>	
-	<div class="ppContent">	
-		<div class "close">
-			<a class="pure-button">X</a>
-		</div>
+
 	<ul>
 		<li><a href="search/<%= title %>"><%= title %></a></li>
 		<li><%= unit %></li>
 		<li><%= dateAdded %></li>
 		<ul><% _.each( prices, function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
 	</ul>
-	</div>
-</div>
+
 </script>
 
 <script id="productTemplate" type="text/template">

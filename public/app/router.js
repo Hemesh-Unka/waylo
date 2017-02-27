@@ -46,7 +46,7 @@ define(function(require, exports, module) {
 			success: function(response) {
 	
 				app.layout.setView(
-					'.product', new s.Views.productPreviewView({ model: response })
+					'.shelf', new s.Views.productPreviewView({ model: response })
 				).render();
 
 			}
