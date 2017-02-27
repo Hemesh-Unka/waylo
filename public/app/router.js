@@ -31,8 +31,11 @@ define(function(require, exports, module) {
 	},
 
 	index: function() {
-		
-		this.basket.fetch();
+		app.useLayout({ template: "#mainLayout" }).setViews({
+			".search": new x.Views.Search(),
+			".shelf": new s.Views.ShelfView({ collection: this.basket }),
+			//".product": new s.Views.ProductView(),
+		}).render();
 	},
 
 	search: function(query) {
