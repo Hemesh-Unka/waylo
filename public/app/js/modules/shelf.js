@@ -24,7 +24,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 			
 			tagName: 'div',
 			
-			className: 'pure-u-1-1 show',
+			className: 'show',
 			
 			initialize : function() {
 				this.listenTo(this.model, 'reset update', this.render);
