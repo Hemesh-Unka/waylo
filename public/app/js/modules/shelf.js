@@ -22,6 +22,10 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 		// Individual Product View
 		u.productPreviewView = n.View.extend({
 			
+			tagName: 'div',
+			
+			className: 'pure-u-1-1 show',
+			
 			initialize : function() {
 				this.listenTo(this.model, 'reset update', this.render);
 			},
@@ -78,9 +82,9 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 				}, this);
 			}
 
-		}), {
-			Models: s,
-			Collections: o,
-			Views: u
-		}
-	})
+			}), {
+				Models: s,
+				Collections: o,
+				Views: u
+			}
+		})

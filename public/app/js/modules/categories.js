@@ -4,9 +4,12 @@ define("js/modules/categories", ["jquery", "underscore", "backbone", "app"], fun
 		i = {},
 		p = {};
 
-// Models
-	return
-	
+	// Models
+	return s.Product = n.Model.extend({
+		idAttribute: "title",
+		urlRoot: 'api/catalog/products/',
+	}),
+
 	
 	
 	}), {
