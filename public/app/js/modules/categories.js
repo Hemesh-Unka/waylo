@@ -7,6 +7,15 @@ define("js/modules/categories", ["jquery", "underscore", "backbone", "app"], fun
 	// Models
 	return s.MenuItem = n.Model.extend({
 	
+	
+	}),
+	
+	return i.Catergories = n.Collection.extend({
+		
+		
+		
+	
+	
 	}),
 
 	
