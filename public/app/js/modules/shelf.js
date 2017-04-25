@@ -3,21 +3,19 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 			o = {},
 			u = {};
 
-// Models
+// Model
 		return s.Product = n.Model.extend({
 			idAttribute: "title",
 			urlRoot: 'api/catalog/products/',
 		}),
 
-// Collections
+// Collection
 		o.Basket = n.Collection.extend({
 			model: s.Product,
 			url: 'api/catalog/search',
 		}),
 
 // Views
-
-		// Could I create one view that can have the number of prices displayed? Save code?
 		
 		// Individual Product View
 		u.productPreviewView = n.View.extend({
