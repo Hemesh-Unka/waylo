@@ -1,12 +1,12 @@
 define("js/modules/search", ["jquery", "underscore", "backbone", "app"], function($, _, n, r) {
-		var t = {},
+	var t = {},
 			o = {},
 			u = {};
 
-		return t.Query = n.Model.extend({
+//Models
+		return t.Query = n.Model.extend({}),
 
-		}),
-
+//Collections
 		o.searchResults = n.Collection.extend({
 			model: t.Query,
 
@@ -26,7 +26,7 @@ define("js/modules/search", ["jquery", "underscore", "backbone", "app"], functio
 				 events: {
 				  'keyup input': "action"
 				 },
-			
+
 			minLength: 1,
 			currentText: "",
 
@@ -40,28 +40,28 @@ define("js/modules/search", ["jquery", "underscore", "backbone", "app"], functio
 
 			action: function(e) {
 				var query = $(e.currentTarget).val();
-				
+
 				if (this.isChanged(query)) {
-					if (this.isValid(query)) {									
-						$(".suggestions").show();									
+					if (this.isValid(query)) {
+						$(".suggestions").show();
 						this.setView(".suggestions", new u.suggestionList({q: query}));
 					} else {
-						$(".suggestions").hide();						
+						$(".suggestions").hide();
 					}
 				this.currentText = query;
 				}
 			},
-			
-			
+
+
 /*
 			action: _.debounce(function(e) {
-				
+
 				var query = $(e.currentTarget).val();
-				
+
 				if (this.isChanged(query)) {
 
 				$(".suggestions").addClass('disabled');
-					
+
 					if (this.isValid(query)) {
 						this.setView(".suggestions", new u.suggestionList({collection: new o.searchResults(), q: query}));
 					} else {
@@ -82,30 +82,30 @@ define("js/modules/search", ["jquery", "underscore", "backbone", "app"], functio
 		}),
 
 		u.suggestionList = n.View.extend({
-		
+
 			tagName: "ol",
-	
+
 			initialize: function(options) {
-	
+
 				this.options = options;
-							
+
 				this.collection = new o.searchResults();
-				this.collection.fetch({ data: $.param({ q: options.q })});		
+				this.collection.fetch({ data: $.param({ q: options.q })});
 				this.listenTo(this.collection, 'sync', this.render);
-			}, 
-			
+			},
+
 			beforeRender: function() {
-				
-				this.collection.each(function(item) {					
+
+				this.collection.each(function(item) {
 					this.insertView("", new u.suggestionListItem({
 						model: item
 					}));
 				}, this);
 			},
-	
+
 			afterRender: function() {
-			},	
-		
+			},
+
 		}),
 		{
 			Models: t,
