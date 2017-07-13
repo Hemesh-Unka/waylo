@@ -7,7 +7,6 @@ var e = {},
 	// Models
 	return s.MenuItem = n.Model.extend({
 
-
 	}),
 
 	return i.Catergories = n.Collection.extend({
