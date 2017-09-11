@@ -23,6 +23,9 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			initialize : function() {
 				this.listenTo(this.model, 'reset update', this.render);
 				//console.log(this.model.attributes.prices);
+				
+				
+				
 			},
 
 			template: _.template( $( '#productPreviewTemplate' ).html() ),
