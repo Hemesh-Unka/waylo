@@ -22,6 +22,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 			
 			initialize : function() {
 				this.listenTo(this.model, 'reset update', this.render);
+				console.log(this.model.attributes);
 			},
 
 			template: _.template( $( '#productPreviewTemplate' ).html() ),
