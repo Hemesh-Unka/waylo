@@ -35,9 +35,11 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				console.log(this.model.attributes.prices);
 				
 				g = new x(document.getElementById("graph"),
+					
 					this.model.attributes.prices,
               {
-                labels: ["x", "date", "price" ]
+				title: 'NYC vs. SF',
+				showRoller: true,                                
               });
             
 		  },
