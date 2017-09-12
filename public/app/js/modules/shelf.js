@@ -35,9 +35,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				var obj = this.model.attributes.prices;
 				
-				var array = Object.keys(obj).map(function(key) {
-					return [Number(key), obj[key]];
-				});
+				var array = _.flatMap(obj, _.values)
 
 				//console.log(this.model.attributes.prices);
 				console.log(array);
