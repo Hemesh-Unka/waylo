@@ -34,24 +34,13 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 		  afterRender: function() {
 				console.log(this.model.attributes.prices);
 				
-				console.log(this.objectToArray(this.model.attributes.prices));
-				
 				g = new x(document.getElementById("graph"),
-					_.pairs(this.model.attributes.prices),
+					this.model.attributes.prices,
               {
+                labels: ["x", "date", "price" ]
               });
-              
+            
 		  },
-		  
-		objectToArray =  function(object) {
-			_.chain(object)
-			    .groupBy(function (entity) {
-			        return entity.key[0];
-			    })
-			    .value();
-			}		  
-		  
-		  
 		}),
 
 		// Shelf Product View
