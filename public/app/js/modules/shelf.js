@@ -38,7 +38,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				var array = this.flattenObject(obj);
 
 				//console.log(this.model.attributes.prices);
-				console.log(array);
+				//console.log(array);
 				
 				g = new x(document.getElementById("graph"),
 					
