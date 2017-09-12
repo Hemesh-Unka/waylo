@@ -44,6 +44,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 		  
 		  fixObject: function(myObj){
 			$.map(myObj, function(value, index) {
+				console.log[value];
 				return [value];
 			});
 		  }
