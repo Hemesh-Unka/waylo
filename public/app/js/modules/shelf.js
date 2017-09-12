@@ -41,8 +41,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				//console.log(array);
 				
 				g = new x(document.getElementById("graph"),
-					array,
-				{ labels: [ "x", "A", "B" ] });
+					array);
 				
 				console.log(g);
 		  },
