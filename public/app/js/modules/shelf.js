@@ -41,6 +41,17 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				g = new x(document.getElementById("graph"), data, {
 					labels: [ "Date", "Price" ],
+
+        axes: {
+            x: {
+                axisLabelFormatter: function (d, gran) {
+                    return d.toLocaleDateString();
+                },
+                valueFormatter: function (d) {
+                    return new Date(d).toLocaleDateString();
+                }
+            }
+        }
 					
 				});
              
