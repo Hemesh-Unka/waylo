@@ -54,7 +54,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			
 			_.map(obj, function(value) {
 					
-				newObj = _.values(value);
+				newObj.push(_.values(value));
 			
 			});
 				return newObj;
