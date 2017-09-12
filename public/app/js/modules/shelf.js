@@ -39,14 +39,10 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				console.log(data);
 				
-				//2009/07/12 12:34:56
-
-				
-				g = new x(document.getElementById("graph"), [[1, 6.49],[2, 6.99]], {
+				g = new x(document.getElementById("graph"), [[2009/07/12, 6.49],[2009/07/13, 6.99]], {
 					labels: [ "Date", "Price" ],
 				});
-             
-				
+        
 		  },
 		  
 		  flattenObject(obj) {
