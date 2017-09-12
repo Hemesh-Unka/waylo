@@ -37,7 +37,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 								
 				var data = this.flattenObject(obj);
 				
-				console.log(data);
+				//console.log(data);
 				
 				g = new x(document.getElementById("graph"), [[new Date("2009/07/12"), 6.49],[new Date("2009/07/13"), 6.99]], {
 					labels: [ "Date", "Price" ],
@@ -49,9 +49,11 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			
 			var newObj = [];
 			
-			_.map(obj, function(value) {
+			_.map(obj, function(value, key) {
 					
 				newObj.push(_.values(value));
+			
+				console.log(key);
 			
 			});
 				return newObj;
