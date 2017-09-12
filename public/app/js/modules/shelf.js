@@ -34,10 +34,10 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 		  afterRender: function() {
 				console.log(this.model.attributes.prices);
 				
-				g = new x("#graph",
+				g = new x(document.getElementById("graph"),
 					this.model.attributes.prices 
 				);
-		  },			
+		  },		
 
 		}),
 
