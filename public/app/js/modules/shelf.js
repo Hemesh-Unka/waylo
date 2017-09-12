@@ -39,7 +39,10 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				console.log(data);
 				
-				g = new x(document.getElementById("graph"), ["2017-01-05T18:02:05.532Z", 6.49],["2017-01-06T18:02:03.447Z", 6.99], {
+				//2009/07/12 12:34:56
+
+				
+				g = new x(document.getElementById("graph"), ["2017-01-05 18:02:05", 6.49],["2017-01-06 18:02:03", 6.99], {
 					labels: [ "Date", "Price" ],
 				}
 				);
