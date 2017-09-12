@@ -32,7 +32,13 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			},
 			
 		  afterRender: function() {
-				console.log(this.model.attributes.prices);
+				
+				var array = $.map(this.model.attributes.prices, function(value, index) {
+				    return [value];
+				});				
+
+				//console.log(this.model.attributes.prices);
+				console.log(array);
 				
 				g = new x(document.getElementById("graph"),
 					
