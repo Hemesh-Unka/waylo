@@ -45,6 +45,10 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			 [1247554800000, 30]],
 			{
 			    labels: ['Date', 'Value'],
+
+                xValueParser: function(x){
+                    return x*1000;
+                },
 			
 			   axes: {
 			        x: {
