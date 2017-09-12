@@ -35,11 +35,18 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				console.log(this.model.attributes.prices);
 				
 				g = new x(document.getElementById("graph"),
-					this.model.attributes.prices,
+					fixObject(this.model.attributes.prices),
               {
                 labels: [ "date", "price" ]
               });
+              
 		  },		
+		  
+		  fixObject: function(myObj){
+			$.map(myObj, function(value, index) {
+				return [value];
+			});
+		  }
 
 		}),
 
