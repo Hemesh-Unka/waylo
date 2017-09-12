@@ -33,7 +33,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			
 		  afterRender: function() {
 				
-				var obj = this.model.attributes;
+				var obj = this.model.attributes.prices;
 				
 				var array = Object.keys(obj).map(function(key) {
 					return [Number(key), obj[key]];
