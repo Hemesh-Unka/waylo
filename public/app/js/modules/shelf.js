@@ -39,19 +39,20 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				//console.log(data);
 				
-				g = new Dygraph(document.getElementById("graph"),
-					[[1247382000000, 10],
-					[1247468400000, 20],
-					[1247554800000, 30]], {
-					labels: [ "Date", "Price" ],
-                     axes: {
-                         x: {
-                             valueFormatter: Dygraph.dateString_,
-                             axisLabelFormatter: Dygraph.dateAxisFormatter,
-                             ticker: Dygraph.dateTicker
-                         }
-                     }					
-				});
+			g = new Dygraph(document.getElementById('graph'),
+			[[1247382000000, 10],
+			 [1247468400000, 20],
+			 [1247554800000, 30]],
+			{
+			    labels: ['Date', 'Value'],
+			    axes: {
+			        x: {
+			            valueFormatter: Dygraph.dateString_,
+			            axisLabelFormatter: Dygraph.dateAxisFormatter,
+			            ticker: Dygraph.dateTicker
+			        }
+			    }
+			});
         
 		  },
 		  
