@@ -46,9 +46,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				g = new x(document.getElementById("graph"),
 					array,
-				{ labels: [ "Date", "Series1", "Series2" ] });
-				);
-            
+				{ labels: [ "Date", "Series1", "Series2" ] });            
 		  },
 		  
 		  flattenObject(obj) {
