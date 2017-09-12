@@ -34,7 +34,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 		  afterRender: function() {
 				console.log(this.model.attributes.prices);
 				
-				console.log(_.pairs(this.model.attributes.prices);
+				console.log(_.pairs(this.model.attributes.prices));
 				
 				g = new x(document.getElementById("graph"),
 					_.pairs(this.model.attributes.prices),
