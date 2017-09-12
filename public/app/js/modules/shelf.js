@@ -45,13 +45,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			 [1247554800000, 30]],
 			{
 			    labels: ['Date', 'Value'],
-			    axes: {
-			        x: {
-			            valueFormatter: Dygraph.dateString_,
-			            axisLabelFormatter: Dygraph.dateAxisFormatter,
-			            ticker: Dygraph.dateTicker
-			        }
-			    }
+			
 			});
         
 		  },
