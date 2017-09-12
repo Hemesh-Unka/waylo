@@ -40,6 +40,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				//console.log(this.model.attributes.prices);
 				//console.log(array);
 				
+/*
 				g = new x(document.getElementById("graph"),
 					
 					//this.model.attributes.prices,
@@ -47,6 +48,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				title: 'NYC vs. SF',
 				showRoller: true,                                
               });
+*/
             
 		  },
 		  
