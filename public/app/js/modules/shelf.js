@@ -1,4 +1,4 @@
-define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"], function($, _, n, r, y) {
+define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"], function($, _, n, r, Dygraph) {
 		var s = {},
 			o = {},
 			u = {};
@@ -39,7 +39,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				//console.log(data);
 				
-				g = new y(document.getElementById("graph"), [[1247382000000, 6.49],[1247468400000, 6.99]], {
+				g = new Dygraph(document.getElementById("graph"), [[1247382000000, 6.49],[1247468400000, 6.99]], {
 					labels: [ "Date", "Price" ],
                      axes: {
                          x: {
