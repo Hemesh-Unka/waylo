@@ -37,7 +37,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 								
 				var array = this.flattenObject(obj);
 				
-				console.log(array);
+				//console.log(array);
 
 				//console.log(this.model.attributes.prices);
 				//console.log(array);
@@ -57,7 +57,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 		  flattenObject(obj) {
 			
 			_.map(obj, function(value) {
-				return value
+				console.log(value)
 			})
 							  
 		  }
