@@ -21,19 +21,19 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 		u.productPreviewView = n.View.extend({
 			
 			initialize : function() {
-				this.listenTo(this.model, 'reset update', this.render);
-				console.log(this.model.attributes.prices);
-				
-				g = new x("#graph",
-						this.model.attributes.prices 
-					);
-				
+				this.listenTo(this.model, 'reset update', this.render);				
 			},
 
 			template: _.template( $( '#productPreviewTemplate' ).html() ),
 			
 			render: function(layout) {
 				return layout(this).render({ model: this.model.attributes });
+				
+							console.log(this.model.attributes.prices);
+				
+				g = new x("#graph",
+						this.model.attributes.prices 
+					);	
 			},
 
 		}),
