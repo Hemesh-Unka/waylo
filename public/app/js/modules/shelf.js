@@ -39,7 +39,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				//console.log(data);
 				
-				g = new y(document.getElementById("graph"), [[1247382000000, 6.49],[new Date("2009/07/13 12:34:56"), 6.99]], {
+				g = new y(document.getElementById("graph"), [[1247382000000, 6.49],[1247468400000, 6.99]], {
 					labels: [ "Date", "Price" ],
                      axes: {
                          x: {
