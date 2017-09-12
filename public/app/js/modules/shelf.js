@@ -35,15 +35,15 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				var obj = this.model.attributes.prices;
 								
-				var array = this.flattenObject(obj);
+				var data = this.flattenObject(obj);
 				
-				console.log(array);
+				console.log(data);
 				
-				g = new x(document.getElementById("graph"),
-					[array],
-					              {
-                labels: [ "x", "A", "B" ]
-              });
+				g = new x(document.getElementById("graph"), data, {
+					labels: [ "x", "A", "B" ],
+					
+				});
+             
 				
 		  },
 		  
