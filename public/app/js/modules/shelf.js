@@ -51,8 +51,13 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 		  flattenObject(obj) {
 			
 			_.map(obj, function(value) {
-				return _.values(value);
-			})
+				
+				var newObj = [];
+					
+				newObj[] = _.values(value);
+			
+				return newObj;
+			});
 		
 		  }
 		  
