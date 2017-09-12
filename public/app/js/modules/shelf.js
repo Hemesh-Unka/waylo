@@ -1,4 +1,4 @@
-define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"], function($, _, n, r, s) {
+define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"], function($, _, n, r, x) {
 		var s = {},
 			o = {},
 			u = {};
@@ -22,10 +22,11 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			
 			initialize : function() {
 				this.listenTo(this.model, 'reset update', this.render);
-				//console.log(this.model.attributes.prices);
+				console.log(this.model.attributes.prices);
 				
-				g = new s(document.getElementById("graph"),
-					this.model.attributes.prices );				
+				g = new x(document.getElementById("graph"),
+						this.model.attributes.prices 
+					);
 				
 			},
 
