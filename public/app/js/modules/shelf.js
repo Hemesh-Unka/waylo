@@ -29,12 +29,15 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			render: function(layout) {
 				return layout(this).render({ model: this.model.attributes });
 				
-							console.log(this.model.attributes.prices);
+			},
+			
+		  afterRender: function() {
+				console.log(this.model.attributes.prices);
 				
 				g = new x("#graph",
-						this.model.attributes.prices 
-					);	
-			},
+					this.model.attributes.prices 
+				);
+		  },			
 
 		}),
 
