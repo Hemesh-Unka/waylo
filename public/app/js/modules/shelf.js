@@ -37,7 +37,6 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				g = new x(document.getElementById("graph"),
 					this.model.attributes.prices,
               {
-                labels: [ "date", "price" ]
               });
               
 		  }
