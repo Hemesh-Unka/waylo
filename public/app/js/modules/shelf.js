@@ -24,7 +24,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				this.listenTo(this.model, 'reset update', this.render);
 				//console.log(this.model.attributes.prices);
 				
-			g = new s(graph,
+			g = new s('#graph',
 				this.model.attributes.prices,
 			{
 				option1: value1,
