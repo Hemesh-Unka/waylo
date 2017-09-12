@@ -49,6 +49,13 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
               });
             
 		  },
+		  
+		  flattenObject(obj) {
+			
+			console.log(obj);
+				  
+		  }
+		  
 		}),
 
 		// Shelf Product View
