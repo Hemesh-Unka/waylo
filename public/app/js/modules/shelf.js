@@ -42,7 +42,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				g = new x(document.getElementById("graph"),
 					
-					this.model.attributes.prices,
+					//this.model.attributes.prices,
               {
 				title: 'NYC vs. SF',
 				showRoller: true,                                
@@ -52,7 +52,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 		  
 		  flattenObject(obj) {
 			
-			console.log(_.map(obj));
+			console.log(_.values(obj));
 				  
 		  }
 		  
