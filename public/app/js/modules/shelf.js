@@ -42,7 +42,9 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				
 				g = new x(document.getElementById("graph"),
 					array,
-				{ labels: [ "x", "A", "B" ] });            
+				{ labels: [ "x", "A", "B" ] });
+				
+				console.log(g);
 		  },
 		  
 		  flattenObject(obj) {
