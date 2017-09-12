@@ -40,7 +40,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				console.log(data);
 				
 				g = new x(document.getElementById("graph"), data, {
-					labels: [ "x", "A", "B" ],
+					labels: [ "Date", "Price" ],
 					
 				});
              
