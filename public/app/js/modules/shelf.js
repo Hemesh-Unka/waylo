@@ -44,7 +44,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 				//console.log(this.model.attributes.prices);
 				//console.log(array);
 				
-				g = new x(document.getElementById("graph"),array);
+				g = new x(document.getElementById("graph"), array);
             
 		  },
 		  
@@ -54,7 +54,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			
 			_.map(obj, function(value) {
 					
-				newObj = _.values(value);
+				var newObj = _.values(value);
 			
 			});
 				return newObj;
