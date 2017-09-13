@@ -1,4 +1,4 @@
-define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], function($, _, n, r, t) {
+define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], function($, _, n, r, y) {
 		var s = {},
 			o = {},
 			u = {};
@@ -39,7 +39,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], fu
 				
 				console.log(obj);
 				
-			var chart = t.generate({
+			var chart = y.generate({
 			    bindto: '#graph',
 			    data: {
 			      columns: [
