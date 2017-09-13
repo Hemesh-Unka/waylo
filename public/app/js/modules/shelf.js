@@ -49,18 +49,21 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			    xFormat: '%Y-%m-%dT%H:%M:%S.%LZ'
 			},
 				
-		   axis: {
-    x: {
-        type: 'timeseries',
-        tick: {
-            format: '%Y-%m-%d %H:%M'
-        }
-    }
-}
+			axis: {
+			x: {
+			type: 'timeseries',
+			tick: {
+			format: '%Y-%m-%d %H:%M'
+			}
+			}
+			},
 			
-			
-			
-			});
+    	},
+    	zoom: {
+    	enabled: true,
+  		rescale: true		
+		
+		});
         
 		  },
 		  
