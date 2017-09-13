@@ -43,10 +43,17 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			
 			},
 				
-			keys: {
-			      x: 'date', // it's possible to specify 'x' when category axis
-			      value: ['date', 'price']
-			}
+		    axis: {
+		        x: {
+		            type: 'timeseries',
+		            tick: {
+		                format: '%Y-%m-%d'
+		            }
+		        }
+		    }
+			
+			
+			
 			});
         
 		  },
