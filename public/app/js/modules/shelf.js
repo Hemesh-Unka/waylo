@@ -37,7 +37,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 																
 			var chart = c3.generate({
 			  data: {
-			    
+			  	x: 'x',
 			    json: obj,
 				//xFormat: '%Y-%m-%d %H:%M:%S',
 			
