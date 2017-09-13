@@ -39,7 +39,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], fu
 				
 				console.log(obj);
 				
-			var chart = c3.generate({
+			var chart = t.generate({
 			    bindto: '#graph',
 			    data: {
 			      columns: [
