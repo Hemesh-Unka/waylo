@@ -82,10 +82,11 @@
 		<li><a href="search/<%= title %>"><%= title %></a></li>
 		<li><%= unit %></li>
 		<li><%= dateAdded %></li>
+
+		<div id="chart"></div>
+
 		<ul><% _.each( prices, function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
 	</ul>
-
-	<div id="chart"></div>
 
 </script>
 
