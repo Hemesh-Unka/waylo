@@ -37,6 +37,22 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 												
 				console.log(obj);
 				
+var chart = c3.generate({
+  data: {
+    json: obj,
+    keys: {
+      // x: 'name', // it's possible to specify 'x' when category axis
+      value: ['date', 'price']
+    }
+  },
+  axis: {
+    x: {
+      // type: 'category'
+    }
+  }
+});
+
+/*
 		var chart = c3.generate({
 			bindTo: '#chart',
 				data: {
@@ -47,18 +63,19 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 					['x', '2015-09-09T01:05:43.269Z', '2015-09-09T02:05:43.269Z', '2015-09-09T03:05:43.269Z', '2015-09-09T04:05:43.269Z', '2015-09-09T05:05:43.269Z'],
 					['sample', 30, 100, 400, 150], ]
 					*/
-					json: obj,
-				},
-				keys: {
+				//	json: obj,
+				//},
+				//keys: {
 					// x: 'name', // it's possible to specify 'x' when category axis
-					value: ['date', 'price']
-				}
-			},
-			axis: {
-				x: {
-				// type: 'category'
-			}
-		});
+				//	value: ['date', 'price']
+				//}
+			//},
+			  //axis: {
+			    //x: {
+			      // type: 'category'
+			    //}
+			  //}
+		//});
         
 		  },
 		  
