@@ -51,7 +51,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 				},
 				keys: {
 					// x: 'name', // it's possible to specify 'x' when category axis
-					value: ['upload', 'download']
+					value: ['date', 'price']
 				}
 			},
 			axis: {
