@@ -37,15 +37,25 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 												
 				console.log(obj);
 				
-			var chart = c3.generate({
-			    bindto: '#graph',
-			    data: {
-			      columns: [
-			        ['data1', 30, 200, 100, 400, 150, 250],
-			        ['data2', 50, 20, 10, 40, 15, 25]
-			      ]
-			    }
-			});
+var chart = c3.generate({
+    bindTo: '#graph',
+    data: {
+        x: 'x',
+        xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
+        columns: [
+            ['x', '2015-09-09T01:05:43.269Z', '2015-09-09T02:05:43.269Z', '2015-09-09T03:05:43.269Z', '2015-09-09T04:05:43.269Z', '2015-09-09T05:05:43.269Z'],
+            ['sample', 30, 100, 400, 150], ]
+    },
+    axis: {
+        x: {
+            type: 'timeseries',
+            tick: {
+                fit: false,
+                format: "%H:%M"
+            }
+        }
+    }
+});
         
 		  },
 		  
