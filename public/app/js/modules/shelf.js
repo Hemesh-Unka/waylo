@@ -35,9 +35,9 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 				
 				var obj = this.model.attributes.prices;
 								
-				var data = this.flattenObject(obj);
+// 				var data = this.flattenObject(obj);
 				
-				console.log(data);
+				console.log(obj);
 				
 /*
 			g = new Dygraph(document.getElementById('graph'),
@@ -51,6 +51,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
         
 		  },
 		  
+/*
 		  flattenObject(obj) {
 			
 			var newObj = [];
@@ -64,6 +65,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 			});
 				return newObj;
 		  }
+*/
 		  
 		}),
 
