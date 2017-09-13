@@ -40,7 +40,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			    json: obj,
 				xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
 			    keys: {
-			      x: 'date', // it's possible to specify 'x' when category axis
+			      //x: 'date', // it's possible to specify 'x' when category axis
 			      value: ['price']
 			    }
 			  },
