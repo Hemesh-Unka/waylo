@@ -51,7 +51,6 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
         
 		  },
 		  
-/*
 		  flattenObject(obj) {
 			
 			var newObj = [];
@@ -65,7 +64,6 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function
 			});
 				return newObj;
 		  }
-*/
 		  
 		}),
 
