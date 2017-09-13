@@ -40,16 +40,16 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 var chart = c3.generate({
   data: {
     json: obj,
+	xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
     keys: {
       // x: 'name', // it's possible to specify 'x' when category axis
-      value: ['date', 'price']
+      value: ['price']
     }
   },
   axis: {
     x: {
       // type: 'category'
     },
-	xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',    
   }
 });
 
