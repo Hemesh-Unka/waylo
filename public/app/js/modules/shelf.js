@@ -37,20 +37,26 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 																
 			var chart = c3.generate({
 			  data: {
-			  	x: 'x',
+			
 			    json: obj,
 				//xFormat: '%Y-%m-%d %H:%M:%S',
-			
+			   
+			    keys: {
+			        x: 'date',
+			        xFormat: '%Y-%m-%d %H:%M:%S',
+			        value: ['price']
+			    },
+			    xFormat: '%Y-%m-%d %H:%M:%S'
 			},
 				
-		    axis: {
-		        x: {
-		            type: 'timeseries',
-		            tick: {
-		                format: '%Y-%m-%d'
-		            }
-		        }
-		    }
+		   axis: {
+    x: {
+        type: 'timeseries',
+        tick: {
+            format: '%Y-%m-%d %H:%M:%S'
+        }
+    }
+}
 			
 			
 			
