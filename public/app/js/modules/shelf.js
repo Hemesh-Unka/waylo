@@ -42,7 +42,7 @@ var chart = c3.generate({
     json: obj,
     keys: {
       // x: 'name', // it's possible to specify 'x' when category axis
-      value: ['price']
+      value: ['price', 'date']
     }
   },
     axis: {
