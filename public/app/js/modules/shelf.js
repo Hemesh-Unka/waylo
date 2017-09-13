@@ -43,17 +43,17 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			   
 			    keys: {
 			        x: 'date',
-			        xFormat: '%Y-%m-%d %H:%M:%S',
+			        xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
 			        value: ['price']
 			    },
-			    xFormat: '%Y-%m-%d %H:%M:%S'
+			    xFormat: '%Y-%m-%dT%H:%M:%S.%LZ'
 			},
 				
 		   axis: {
     x: {
         type: 'timeseries',
         tick: {
-            format: '%Y-%m-%d %H:%M:%S'
+            format: '%Y-%m-%dT%H:%M:%S.%LZ'
         }
     }
 }
