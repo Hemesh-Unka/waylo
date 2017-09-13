@@ -1,4 +1,4 @@
-define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"], function($, _, n, r, Dygraph) {
+define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function($, _, n, r) {
 		var s = {},
 			o = {},
 			u = {};
