@@ -37,29 +37,21 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 								
 				var data = this.flattenObject(obj);
 				
-				//console.log(data);
+				console.log(data);
 				
+/*
 			g = new Dygraph(document.getElementById('graph'),
-			[[1247382000000, 10],
-			 [1247468400000, 20],
-			 [1247554800000, 30]],
-			{
-			    labels: ['Date', 'Value'],
-
-                xValueParser: function(x){
-                    return x*1000;
-                },
-			
-			   axes: {
-			        x: {
-			            axisLabelFormatter: Dygraph.dateAxisLabelFormatter,
-			            valueFormatter: Dygraph.dateValueFormatter
-			        }			
-				}
+				[[1247382000000, 10],
+				 [1247468400000, 20],
+				 [1247554800000, 30]],
+				{
+				    labels: ['Date', 'Value'],
 			});
+*/
         
 		  },
 		  
+/*
 		  flattenObject(obj) {
 			
 			var newObj = [];
@@ -73,6 +65,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "dygraph"
 			});
 				return newObj;
 		  }
+*/
 		  
 		}),
 
