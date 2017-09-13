@@ -50,6 +50,7 @@ var chart = c3.generate({
          json: obj,
     },
     axis: {
+            value: ['Date', 'Price'],
         x: {
             type: 'timeseries',
             tick: {
