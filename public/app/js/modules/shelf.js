@@ -39,7 +39,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			  data: {
 			    
 			    json: obj,
-				xFormat: '%Y-%m-%d %H:%M:%S',
+				//xFormat: '%Y-%m-%d %H:%M:%S',
 			
 			},
 				
