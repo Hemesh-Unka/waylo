@@ -1,4 +1,4 @@
-define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], function($, _, n, r, y) {
+define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], function($, _, n, r, c3) {
 		var s = {},
 			o = {},
 			u = {};
@@ -34,12 +34,10 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], fu
 		  afterRender: function() {
 				
 				var obj = this.model.attributes.prices;
-								
-// 				var data = this.flattenObject(obj);
-				
+												
 				console.log(obj);
 				
-			var chart = y.generate({
+			var chart = c3.generate({
 			    bindto: '#graph',
 			    data: {
 			      columns: [
@@ -50,22 +48,6 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], fu
 			});
         
 		  },
-		  
-/*
-		  flattenObject(obj) {
-			
-			var newObj = [];
-			
-			_.map(obj, function(value) {
-					
-				newObj.push(_.values(value));
-			
-				console.log(value.date);
-			
-			});
-				return newObj;
-		  }
-*/
 		  
 		}),
 
