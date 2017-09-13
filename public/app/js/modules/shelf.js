@@ -1,4 +1,4 @@
-define("js/modules/shelf", ["jquery", "underscore", "backbone", "app"], function($, _, n, r) {
+define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3"], function($, _, n, r, t) {
 		var s = {},
 			o = {},
 			u = {};
