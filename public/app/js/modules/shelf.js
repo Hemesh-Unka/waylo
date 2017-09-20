@@ -53,7 +53,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			x: {
 			type: 'timeseries',
 			tick: {
-			format: '%Y-%m-%d %H:%M'
+			format: '%Y-%m-%d %H:%M',
 			fit:false,
 			}
 			}
