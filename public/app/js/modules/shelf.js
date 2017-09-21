@@ -52,7 +52,6 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			axis: {
 			x: {
 			type: 'timeseries',
-			extent: [5, 10],
 			tick: {
 				format: '%Y-%m-%d %H:%M',
 			}
