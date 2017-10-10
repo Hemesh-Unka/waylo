@@ -1,5 +1,5 @@
 define("js/modules/search", ["jquery", "underscore", "backbone", "app"], function($, _, n, r) {
-	var t = {},
+	var 	t = {},
 			o = {},
 			u = {};
 
@@ -11,7 +11,7 @@ define("js/modules/search", ["jquery", "underscore", "backbone", "app"], functio
 			model: t.Query,
 
 			url: function() {
-				return '/catalog/autosuggest/'
+				return 'api/catalog/autosuggest/'
 			}
 		}),
 
