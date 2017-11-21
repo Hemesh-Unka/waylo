@@ -16,31 +16,31 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 		}),
 
 // Views
-		
+
 		// Individual Product View
 		u.productPreviewView = n.View.extend({
-			
+
 			initialize : function() {
-				this.listenTo(this.model, 'reset update', this.render);				
+				this.listenTo(this.model, 'reset update', this.render);
 			},
 
 			template: _.template( $( '#productPreviewTemplate' ).html() ),
-			
+
 			render: function(layout) {
 				return layout(this).render({ model: this.model.attributes });
-				
+
 			},
-			
+
 		  afterRender: function() {
-				
+
 		  var obj = this.model.attributes.prices;
-																
+
 			var chart = c3.generate({
 			  data: {
-			
+
 			    json: obj,
 				//xFormat: '%Y-%m-%d %H:%M:%S',
-			   
+
 			    keys: {
 			        x: 'date',
 			        xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
@@ -48,7 +48,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			    },
 			    xFormat: '%Y-%m-%dT%H:%M:%S.%LZ'
 			},
-				
+
 			axis: {
 			x: {
 			type: 'timeseries',
@@ -56,59 +56,59 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 				format: '%Y-%m-%d %H:%M',
 			}
 			}
-			
+
     	},
     	zoom: {
     	enabled: true,
-  		rescale: true		
+  		rescale: true
 		}
 		});
-        
+
 		  },
-		  
+
 		}),
 
 		// Shelf Product View
 		u.ProductView = n.View.extend({
-			
-			template: _.template( $( '#productTemplate' ).html() ),			
-			
+
+			template: _.template( $( '#productTemplate' ).html() ),
+
 			tagName: 'div',
-			
-			className: 'pure-u-1-5 productPreview',
-			
+
+			className: '.col-md-4 productPreview',
+
 			render: function(layout) {
 				return layout(this).render({ model: this.model.attributes });
 			},
-		
+
 			events: {
 				"click li": "showProduct"
 			},
 
 			showProduct: function(e) {
-				
+
 				e.preventDefault();
-				
-				r.router.go("search/" + this.model.get("title"));				
-												
+
+				r.router.go("search/" + this.model.get("title"));
+
 			}
 		}),
 
 
 		// Shelf View
 		u.ShelfView = n.View.extend({
-			
+
 			initialize : function() {
 				this.listenTo(this.collection, 'reset update', this.render);
 			},
 
 			beforeRender: function() {
 				this.collection.each(function(item) {
-					
+
 					this.insertView("", new u.ProductView({
 						model: item
 					}));
-					
+
 				}, this);
 			}
 
