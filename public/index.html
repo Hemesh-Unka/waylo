@@ -1,105 +1,84 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Waylo</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Waylo</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="container"></div>
 
-  <!--<link rel="stylesheet" href="css/styles.css?v=1.0"> -->
-<link rel="stylesheet" href="https://yui-s.yahooapis.com/pure/0.6.0/pure-min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.17/c3.css">
+    <h1>Hello, world!</h1>
 
-<style>
-.suggestions {
-	position: absolute;
-	background-color: #fff;
-}
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 
-.suggestions ol {
-	list-style-type: none;
-}
-</style>
+    <script type="text/javascript" data-main="app/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
 
-  <!--[if lt IE 9]>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
-</head>
+    <script type="layout" id="mainLayout">
 
-<body>
+    	<div class="pure-menu pure-menu-horizontal">
+    		<a href="#" class="pure-menu-heading pure-menu-link">Waylo</a>
 
-<div id="container"></div> 
-    
-<script type="text/javascript" data-main="app/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
+    		<ul class="pure-menu-list">
+    			<li class="pure-menu-item">
+    				<div class="search">
+    					Search bar will load here
+    				</div>
+    			</li>
+    		</ul>
+    	</div>
 
-<script type="layout" id="mainLayout">
+    	<div class="pure-g">
+    		<div class="pure-u-2-24 leftMenu">
+    			Left Menu
+    		</div>
 
+    		<div class="pure-u-18-24 shelf">
+    			Loading, Please wait ...
+    		</div>
 
-	<div class="pure-menu pure-menu-horizontal">
-		<a href="#" class="pure-menu-heading pure-menu-link">Waylo</a>
-		
-		<ul class="pure-menu-list">
-			<li class="pure-menu-item">
-				<div class="search">
-					Search bar will load here
-				</div>
-			</li>
-		</ul>
-	</div>
+    		<div class="pure-u-4-24 product">
+    			Detailed product detail will go here
+    		</div>
+    	</div>
 
-	<div class="pure-g">
-		<div class="pure-u-2-24 leftMenu">
-			Left Menu
-		</div>
-		
-		<div class="pure-u-18-24 shelf">
-			Loading, Please wait ...
-		</div>
-	
-		<div class="pure-u-4-24 product">
-			Detailed product detail will go here
-		</div>
-	</div>
-		
-</script>
+    </script>
 
 
-<script id="searchTemplate" type="text/template">
-	<form class="pure-form" action="#">
-		<input type="text" placeholder="Search for a product or brand" autocomplete="off" class="pure-input-1">
-		<button type="submit" class="pure-button pure-button-primary">Search</button>
-		<div class="suggestions">
-		</div>
-	</form>
-</script>
+    <script id="searchTemplate" type="text/template">
+    	<form class="pure-form" action="#">
+    		<input type="text" placeholder="Search for a product or brand" autocomplete="off" class="pure-input-1">
+    		<button type="submit" class="pure-button pure-button-primary">Search</button>
+    		<div class="suggestions">
+    		</div>
+    	</form>
+    </script>
 
-<script id="productPreviewTemplate" class="hide" type="text/template">
+    <script id="productPreviewTemplate" class="hide" type="text/template">
+    	<ul>
+    		<li><a href="search/<%= title %>"><%= title %></a></li>
+    		<li><%= unit %></li>
+    		<li><%= dateAdded %></li>
+    		<div id="chart"></div>
+    		<ul><% _.each( prices, function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
+    	</ul>
+    </script>
 
-	<ul>
-		<li><a href="search/<%= title %>"><%= title %></a></li>
-		<li><%= unit %></li>
-		<li><%= dateAdded %></li>
+    <script id="productTemplate" type="text/template">
+    	<ul>
+    		<li><a href="search/<%= title %>"><%= title %></a></li>
+    		<li><%= unit %></li>
+    		<ul><% _.each( _.last(prices, 2), function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
+    	</ul>
+    </script>
 
-		<div id="chart"></div>
-
-		<ul><% _.each( prices, function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
-	</ul>
-
-</script>
-
-<script id="productTemplate" type="text/template">
-	<ul>
-		<li><a href="search/<%= title %>"><%= title %></a></li>
-		<li><%= unit %></li>
-		<ul><% _.each( _.last(prices, 2), function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
-	</ul>
-	
-</script>
-
-
-
-</body>
+  </body>
 </html>
