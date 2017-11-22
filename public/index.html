@@ -106,12 +106,9 @@
       <div class="card">
         <div class="card-block">
           <h5 class="card-title"><a href="search/<%= title %>"><%= title %></a></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= unit %></h6>
 
-      <ul>
-    		<li><a href="search/<%= title %>"><%= title %></a></li>
-    		<li><%= unit %></li>
     		<ul><% _.each( _.last(prices, 2), function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
-    	</ul>
 
       </div>
     </div>
