@@ -81,7 +81,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 			render: function(layout) {
 				return layout(this).render({ model: this.model.attributes });
 			},
-			
+
 			showProduct: function(e) {
 				e.preventDefault();
 				r.router.go("search/" + this.model.get("title"));
@@ -91,6 +91,10 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 
 		// Shelf View
 		u.ShelfView = n.View.extend({
+
+			tagName: 'div',
+
+			className: 'row',
 
 			initialize : function() {
 				this.listenTo(this.collection, 'reset update', this.render);

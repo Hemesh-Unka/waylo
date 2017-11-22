@@ -40,7 +40,6 @@ define(function(require, exports, module) {
   },
 
 	search: function(query) {
-
 		this.product.set({
 			"title": query
 		})
