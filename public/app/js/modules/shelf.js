@@ -72,7 +72,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 
 			tagName: 'div',
 
-			className: 'col-sm productPreview',
+			className: 'col-sm card productPreview',
 
 			events: {
 				"click li": "showProduct"

@@ -45,20 +45,20 @@ function handleError(res, reason, message, code) {
   res.status(code || 500).json({"error": message});
 }
 
-var categoriesSchema = mongoose.Schema({
-  name: String,
-  left: Number,
-  right: Number,
-  level: Number,
-  uri: String,
-});
-
-var Categories = mongoose.model('Categories', categoriesSchema);
-
-var category = new Categories({ name: 'Val' });
-
 var itemSchema = mongoose.Schema({ any: {} });
 var Item = mongoose.model('Item', itemSchema, 'products');
+
+var categorySchema = mongoose.Schema({
+  title: String,
+  uri: String,
+  position: Number,
+  right: Number,
+  left: Number
+});
+
+var CategoryModel = mongoose.model('CategoryModel', CategoryModel);
+//app.get('/api')
+
 
 app.get('/api/catalog/search', function (req, res) {
 	Item.find({}, function(err, docs) {

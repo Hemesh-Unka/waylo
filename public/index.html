@@ -96,11 +96,13 @@
     </script>
 
     <script id="productTemplate" type="text/template">
-    	<ul>
+      <div class="card-block">
+      <ul>
     		<li><a href="search/<%= title %>"><%= title %></a></li>
     		<li><%= unit %></li>
     		<ul><% _.each( _.last(prices, 2), function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
     	</ul>
+    </div>
     </script>
 
   </body>
