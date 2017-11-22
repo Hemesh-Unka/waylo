@@ -1,22 +1,19 @@
 define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3"], function($, _, n, r, c3, d3) {
-		var s = {},
-			o = {},
-			u = {};
+ var s = {}, o = {}, u = {};
 
-// Model
+// Models
 		return s.Product = n.Model.extend({
 			idAttribute: "title",
 			urlRoot: 'api/catalog/products/',
 		}),
 
-// Collection
+// Collections
 		o.Basket = n.Collection.extend({
 			model: s.Product,
 			url: 'api/catalog/search',
 		}),
 
 // Views
-
 		// Individual Product View
 		u.productPreviewView = n.View.extend({
 
@@ -77,20 +74,17 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 
 			className: 'col-sm productPreview',
 
-			render: function(layout) {
-				return layout(this).render({ model: this.model.attributes });
-			},
-
 			events: {
 				"click li": "showProduct"
 			},
 
+			render: function(layout) {
+				return layout(this).render({ model: this.model.attributes });
+			},
+			
 			showProduct: function(e) {
-
 				e.preventDefault();
-
 				r.router.go("search/" + this.model.get("title"));
-
 			}
 		}),
 
