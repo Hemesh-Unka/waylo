@@ -30,6 +30,7 @@ define(function(require, exports, module) {
 	routes: {
 		"": "index",
 		"search/:query": "search",
+    "about": "about",
 	},
 
 	index: function() {
@@ -55,6 +56,15 @@ define(function(require, exports, module) {
 			}
 		});
 	},
+
+  about: function() {
+   app.useLayout({ template: "#mainLayout" }).setViews({
+    //".search": new x.Views.Search(),
+    ".shelf": console.log("about");
+    //new s.Views.ShelfView({ collection: this.basket }
+  ),
+   }).render();
+  },
 
 	// Shortcut for building a url.
 	go: function() {
