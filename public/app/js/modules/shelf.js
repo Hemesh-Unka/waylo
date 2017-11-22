@@ -73,8 +73,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 
 			template: _.template( $( '#productTemplate' ).html() ),
 
-			el: 'shelf'
-
+			el: 'shelf',
 			tagName: 'div',
 
 			className: 'col-sm productPreview',
