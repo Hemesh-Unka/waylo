@@ -53,7 +53,9 @@ var categoriesSchema = mongoose.Schema({
   uri: String,
 });
 
-var categories = mongoose.model('Categories', categoriesSchema);
+var Categories = mongoose.model('Categories', categoriesSchema);
+
+var category = new Categories({ name: 'Val' });
 
 var itemSchema = mongoose.Schema({ any: {} });
 var Item = mongoose.model('Item', itemSchema, 'products');
