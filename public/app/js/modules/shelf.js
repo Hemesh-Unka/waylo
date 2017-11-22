@@ -91,10 +91,8 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 
 		// Shelf View
 		u.ShelfView = n.View.extend({
-
 			tagName: 'div',
-
-			className: 'row',
+			className: 'shelf row',
 
 			initialize : function() {
 				this.listenTo(this.collection, 'reset update', this.render);
