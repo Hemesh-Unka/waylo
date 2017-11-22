@@ -48,18 +48,6 @@ function handleError(res, reason, message, code) {
 var itemSchema = mongoose.Schema({ any: {} });
 var Item = mongoose.model('Item', itemSchema, 'products');
 
-var categorySchema = mongoose.Schema({
-  title: String,
-  uri: String,
-  position: Number,
-  right: Number,
-  left: Number
-});
-
-var CategoryModel = mongoose.model('CategoryModel', CategoryModel);
-//app.get('/api')
-
-
 app.get('/api/catalog/search', function (req, res) {
 	Item.find({}, function(err, docs) {
 	    if (err) {
