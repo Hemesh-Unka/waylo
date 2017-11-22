@@ -61,8 +61,8 @@ define(function(require, exports, module) {
    app.useLayout({ template: "#mainLayout" }).setViews({
     //".search": new x.Views.Search(),
     ".shelf": console.log("about")
-    //new s.Views.ShelfView({ collection: this.basket }
-  ),
+    //new s.Views.ShelfView({ collection: this.basket })
+    ,
    }).render();
   },
 
