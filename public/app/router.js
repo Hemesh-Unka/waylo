@@ -35,7 +35,7 @@ define(function(require, exports, module) {
 
 	index: function() {
    app.useLayout({ template: "#mainLayout" }).setViews({
-    //".search": new x.Views.Search(),
+    ".search": new x.Views.Search(),
     ".shelf": new s.Views.ShelfView({ collection: this.basket }),
    }).render();
   },

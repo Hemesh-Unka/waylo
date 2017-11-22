@@ -67,11 +67,7 @@
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search for a product or brand<" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
+        <div class="search"></div>
     </nav>
 
     <div class="container-fluid" id="container"></div>
@@ -90,12 +86,10 @@
 </script>
 
     <script id="searchTemplate" type="text/template">
-    	<form class="pure-form" action="#">
-    		<input type="text" placeholder="Search for a product or brand" autocomplete="off" class="pure-input-1">
-    		<button type="submit" class="pure-button pure-button-primary">Search</button>
-    		<div class="suggestions">
-    		</div>
-    	</form>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search for a product or brand" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
     </script>
 
     <script id="productPreviewTemplate" class="hide" type="text/template">
@@ -111,7 +105,7 @@
 <script id="productTemplate" type="text/template">
  <div class="card">
   <div class="card-body">
-   <h5 class="card-title"><a href="search/<%= title %>"><%= title %></a></h5>
+   <h6 class="card-title"><a href="search/<%= title %>"><%= title %></a></h6>
    <h6 class="card-subtitle mb-2 text-muted"><%= unit %></h6>
    <ul>
      <% _.each( _.last(prices, 2), function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %>
