@@ -76,11 +76,8 @@
     <script type="text/javascript" data-main="app/main" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js"></script>
 
 <script type="layout" id="mainLayout">
-<nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar"></nav>
-
-<div class="row">
+  <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar"></nav>
   <main role="main" class="col-sm-9 ml-sm-auto col-md-10 pt-3 shelf"></main>
-</div>
 </script>
 
     <script id="searchTemplate" type="text/template">
@@ -102,17 +99,17 @@
     	</ul>
     </script>
 
-    <script id="productTemplate" type="text/template">
-      <div class="card">
-        <div class="card-block">
-          <h5 class="card-title"><a href="search/<%= title %>"><%= title %></a></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= unit %></h6>
-
-    		<ul><% _.each( _.last(prices, 2), function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %></ul>
-
-      </div>
-    </div>
-    </script>
+<script id="productTemplate" type="text/template">
+ <div class="card">
+  <div class="card-block">
+   <h5 class="card-title"><a href="search/<%= title %>"><%= title %></a></h5>
+   <h6 class="card-subtitle mb-2 text-muted"><%= unit %></h6>
+   <ul>
+     <% _.each( _.last(prices, 2), function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %>
+   </ul>
+  </div>
+  </div>
+</script>
 
   </body>
 </html>
