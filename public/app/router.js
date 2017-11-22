@@ -60,7 +60,7 @@ define(function(require, exports, module) {
   about: function() {
    app.useLayout({ template: "#mainLayout" }).setViews({
     //".search": new x.Views.Search(),
-    ".shelf": console.log("about");
+    ".shelf": console.log("about")
     //new s.Views.ShelfView({ collection: this.basket }
   ),
    }).render();
