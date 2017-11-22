@@ -17,12 +17,13 @@ define(function(require, exports, module) {
 		// Set up the product preview
 		this.product = new s.Models.Product();
 
-		// Use main layout and set Views.
+/*		// Use main layout and set Views.
 		app.useLayout({ template: "#mainLayout" }).setViews({
 			".search": new x.Views.Search(),
 			".shelf": new s.Views.ShelfView({ collection: this.basket }),
 			//".product": new s.Views.ProductView(),
 		}).render();
+*/
 
 	},
 
@@ -32,12 +33,11 @@ define(function(require, exports, module) {
 	},
 
 	index: function() {
-/*		app.useLayout({ template: "#mainLayout" }).setViews({
-			".search": new x.Views.Search(),
-			".shelf": new s.Views.ShelfView({ collection: this.basket }),
-			//".product": new s.Views.ProductView(),
-		}).render();
-	},*/
+   app.useLayout({ template: "#mainLayout" }).setViews({
+    //".search": new x.Views.Search(),
+    ".shelf": new s.Views.ShelfView({ collection: this.basket }),
+   }).render();
+  },
 
 	search: function(query) {
 
