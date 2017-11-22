@@ -73,7 +73,7 @@ define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3
 
 			template: _.template( $( '#productTemplate' ).html() ),
 
-			className: 'row col-sm productPreview',
+			className: 'col-sm productPreview',
 
 			render: function(layout) {
 				return layout(this).render({ model: this.model.attributes });
