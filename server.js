@@ -76,10 +76,11 @@ app.get('/api/uri', function (req, res) {
 
         res.send(
           var docsLength = docs.length
-          for (var i = 0; i < docsLength; i++) {
-            res.status(200).json(docs[i].title)
-          })
-		}
+          //for (var i = 0; i < docsLength; i++) {
+            res.status(200).json(docsLength)
+          //})
+
+    }
 	});
 })
 
