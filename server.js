@@ -71,12 +71,12 @@ app.get('/api/catalog/products/:product', function (req, res) {
 app.get('/api/uri', function (req, res) {
   Item.find({}, function(err, docs) {
 	    if (err) {
-			handleError(res, err.message, "Failed to get products.");
+			     handleError(res, err.message, "Failed to get products.");
 	    } else {
 
-      console.log("Hello");
+      docs.title
 
-      res.status(200).json(docs);
+      //res.status(200).json(docs);
 		}
 	});
 })
