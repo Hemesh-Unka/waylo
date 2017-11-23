@@ -74,7 +74,7 @@ app.get('/api/uri', function (req, res) {
 			     handleError(res, err.message, "Failed to get products.");
 	    } else {
 
-      console.log(docs.title);
+        console.log(res);
 
       //res.status(200).json(docs);
 		}
