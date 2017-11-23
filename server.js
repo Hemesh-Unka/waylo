@@ -81,7 +81,7 @@ app.get('/api/uri', function (req, res) {
         }
 
         res.send({
-          res.status(200).json(docs)
+          res.status(200).json(test)
         })
     }
 	});
