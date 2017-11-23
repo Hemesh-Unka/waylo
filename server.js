@@ -68,6 +68,16 @@ app.get('/api/catalog/products/:product', function (req, res) {
 	});
 });
 
+app.get('/api/uri', function (req, res) {
+  Item.find({}, function(err, docs) {
+	    if (err) {
+			handleError(res, err.message, "Failed to get products.");
+	    } else {
+			res.status(200).json(docs);
+		}
+	});  
+})
+
 /*
 //Code to clean DB if website stuffed up during parsing! (Deletes all item with singles in it (Needs work)
 app.get('/catalog/clean', function (req, res) {
