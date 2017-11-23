@@ -80,7 +80,9 @@ app.get('/api/uri', function (req, res) {
       handleError(res, err.message, 'Failed to get products.');
     } else {
 
-      for (var i = 0; i < docs.length; i++) {
+      docsLength = docs.length;
+
+      for (var i = 0; i < docsLength; i++) {
         var test = docsLength[i];
       }
 
