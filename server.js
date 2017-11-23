@@ -75,7 +75,7 @@ app.get('/api/catalog/products/:product', function (req, res) {
 });
 
 app.get('/api/uri', function (req, res) {
-  Item.find({}, function (err, docs) {
+  Item.find({ title }, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to get products.');
     } else {
