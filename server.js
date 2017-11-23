@@ -74,9 +74,9 @@ app.get('/api/uri', function (req, res) {
 			     handleError(res, err.message, "Failed to get products.");
 	    } else {
 
-        var docsLength = docs.length
+        var length = docs.length
 
-        for (var i = 0; i < docsLength; i++) {
+        for (var i = 0; i < length; i++) {
           var test = docs[i].title;
         }
 
