@@ -83,7 +83,7 @@ app.get('/api/uri', function (req, res) {
       docsLength = docs.length;
 
       for (var i = 0; i < docsLength; i++) {
-        console.log(docs.title);
+        console.log(docs[i]);
       }
 
       //res.status(200.json(test);
