@@ -73,9 +73,12 @@ app.get('/api/uri', function (req, res) {
 	    if (err) {
 			handleError(res, err.message, "Failed to get products.");
 	    } else {
-			res.status(200).json(docs);
+
+      console.log("Hello");
+
+      res.status(200).json(docs);
 		}
-	});  
+	});
 })
 
 /*
