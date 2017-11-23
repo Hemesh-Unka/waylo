@@ -64,7 +64,7 @@ app.get('/api/catalog/search', function (req, res) {
 
 app.get('/api/catalog/products/:product', function (req, res) {
   Item.findOne({
-    'title': req.params.product
+    'title': req.params.product,
   }, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
@@ -86,7 +86,9 @@ app.get('/api/uri', function (req, res) {
         var test = docsLength[i];
       }
 
-      res.status(200).json(test);
+      res.send(test);
+
+      //res.status(200.json(test);
     }
   });
 });
