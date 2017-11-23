@@ -76,7 +76,7 @@ app.get('/api/uri', function (req, res) {
 
       console.log(docs.title);
 
-      res.status(200).json(docs);
+      //res.status(200).json(docs);
 		}
 	});
 })
