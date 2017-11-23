@@ -1,16 +1,16 @@
-// EXPRESS -----
-var express = require("express");
+// Express
+var express = require('express');
 var app = express();
 
-var distDir = __dirname + "/public";
+var distDir = __dirname + '/public';
 app.use(express.static(distDir));
 
 // BODY PARSER -----
-var bodyParser = require("body-parser");
+var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
 // MONGOOSE -----
-var mongoose = require("mongoose");
+var mongoose = require('mongoose');
 
 // Create the database connection
 mongoose.connect(process.env.MONGOLAB_URI);
@@ -22,7 +22,7 @@ mongoose.connection.on('connected', function () {
 });
 
 // If the connection throws an error
-mongoose.connection.on('error',function (err) {
+mongoose.connection.on('error', function (err) {
   console.log('Mongoose default connection error: ' + err);
 });
 
@@ -32,7 +32,7 @@ mongoose.connection.on('disconnected', function () {
 });
 
 // If the Node process ends, close the Mongoose connection
-process.on('SIGINT', function() {
+process.on('SIGINT', function () {
   mongoose.connection.close(function () {
     console.log('Mongoose default connection disconnected through app termination');
     process.exit(0);
@@ -41,27 +41,29 @@ process.on('SIGINT', function() {
 
 // Generic error handler used by all endpoints.
 function handleError(res, reason, message, code) {
-  console.log("ERROR: " + reason);
-  res.status(code || 500).json({"error": message});
+  console.log('ERROR: ' + reason);
+  res.status(code || 500).json({
+    error: message,
+  });
 }
 
 var itemSchema = mongoose.Schema({ any: {} });
 var Item = mongoose.model('Item', itemSchema, 'products');
 
 app.get('/api/catalog/search', function (req, res) {
-	Item.find({}, function(err, docs) {
-	    if (err) {
-			handleError(res, err.message, "Failed to get products.");
-	    } else {
-			res.status(200).json(docs);
-		}
-	});
+  Item.find({}, function (err, docs) {
+	 if (err) {
+	  handleError(res, err.message, 'Failed to get products.');
+	 } else {
+	  res.status(200).json(docs);
+	   }
+	 });
 });
 
 app.get('/api/catalog/products/:product', function (req, res) {
 	Item.findOne({ 'title': req.params.product}, function(err, docs) {
 	    if (err) {
-			handleError(res, err.message, "Failed to find anything.");
+			handleError(res, err.message, 'Failed to find anything.');
 	    } else {
 			res.status(200).json(docs);
 		}
@@ -71,28 +73,22 @@ app.get('/api/catalog/products/:product', function (req, res) {
 app.get('/api/uri', function (req, res) {
   Item.find({}, function(err, docs) {
 	    if (err) {
-			     handleError(res, err.message, "Failed to get products.");
+			handleError(res, err.message, 'Failed to get products.');
 	    } else {
 
-        var length = docs.length
+      docsLength = docs.length;
 
-        for (var i = 0; i < length; i++) {
-          var test = docs[i].title;
-        }
-
-        res.send({
-          res.status(200).json(test)
-        })
-    }
-	});
-})
+      res.status(200).json(docs);
+ }
+ });
+});
 
 /*
 //Code to clean DB if website stuffed up during parsing! (Deletes all item with singles in it (Needs work)
 app.get('/catalog/clean', function (req, res) {
-	Item.remove({ "prices": { "$size": 1 }}, function(err, docs) {
+	Item.remove({ 'prices': { '$size': 1 }}, function(err, docs) {
 	    if (err) {
-			handleError(res, err.message, "Failed to get products.");
+			handleError(res, err.message, 'Failed to get products.');
 	    } else {
 			res.status(200).json(docs);
 		}
@@ -106,7 +102,7 @@ app.get('/api/catalog/autosuggest', function (req, res) {
 
 	Item.find({ 'title': new RegExp(q, 'i')}, 'title' , function(err, docs) {
 	    if (err) {
-			handleError(res, err.message, "Failed to find anything.");
+			handleError(res, err.message, 'Failed to find anything.');
 	    } else {
 			res.status(200).json(docs);
 		}
