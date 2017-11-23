@@ -47,66 +47,75 @@ function handleError(res, reason, message, code) {
   });
 }
 
-var itemSchema = mongoose.Schema({ any: {} });
+var itemSchema = mongoose.Schema({
+  any: {},
+});
 var Item = mongoose.model('Item', itemSchema, 'products');
 
 app.get('/api/catalog/search', function (req, res) {
   Item.find({}, function (err, docs) {
-	 if (err) {
-	  handleError(res, err.message, 'Failed to get products.');
-	 } else {
-	  res.status(200).json(docs);
-	   }
-	 });
+    if (err) {
+      handleError(res, err.message, 'Failed to get products.');
+    } else {
+      res.status(200).json(docs);
+    }
+  });
 });
 
 app.get('/api/catalog/products/:product', function (req, res) {
-	Item.findOne({ 'title': req.params.product}, function(err, docs) {
-	    if (err) {
-			handleError(res, err.message, 'Failed to find anything.');
-	    } else {
-			res.status(200).json(docs);
-		}
-	});
+  Item.findOne({
+    'title': req.params.product
+  }, function (err, docs) {
+    if (err) {
+      handleError(res, err.message, 'Failed to find anything.');
+    } else {
+      res.status(200).json(docs);
+    }
+  });
 });
 
 app.get('/api/uri', function (req, res) {
-  Item.find({}, function(err, docs) {
-	    if (err) {
-			handleError(res, err.message, 'Failed to get products.');
-	    } else {
+  Item.find({}, function (err, docs) {
+    if (err) {
+      handleError(res, err.message, 'Failed to get products.');
+    } else {
 
       docsLength = docs.length;
 
-      res.status(200).json(docs);
- }
- });
+      for (var i = 0; i < docsLength.length; i++) {
+        var test = docsLength[i];
+      }
+
+      res.status(200).json(test);
+    }
+  });
 });
 
 /*
 //Code to clean DB if website stuffed up during parsing! (Deletes all item with singles in it (Needs work)
 app.get('/catalog/clean', function (req, res) {
-	Item.remove({ 'prices': { '$size': 1 }}, function(err, docs) {
-	    if (err) {
-			handleError(res, err.message, 'Failed to get products.');
-	    } else {
-			res.status(200).json(docs);
-		}
-	});
+  Item.remove({ 'prices': { '$size': 1 }}, function(err, docs) {
+      if (err) {
+      handleError(res, err.message, 'Failed to get products.');
+      } else {
+      res.status(200).json(docs);
+    }
+  });
 });
 */
 
 app.get('/api/catalog/autosuggest', function (req, res) {
+  var q = req.query.q;
 
-	var q = req.query.q;
-
-	Item.find({ 'title': new RegExp(q, 'i')}, 'title' , function(err, docs) {
-	    if (err) {
-			handleError(res, err.message, 'Failed to find anything.');
-	    } else {
-			res.status(200).json(docs);
-		}
-	});
+  Item.find({
+    'title': new RegExp(q, 'i')
+  }, 'title', function (err, docs) {
+    if (err) {
+      handleError(res, err.message, 'Failed to find anything.');
+    } else {
+      res.status(200).json(docs);
+    }
+  });
 });
 
 app.listen(process.env.PORT, function () {
