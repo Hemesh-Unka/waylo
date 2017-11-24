@@ -21,7 +21,6 @@ define(function(require, exports, module) {
 		app.useLayout({ template: "#mainLayout" }).setViews({
 			".search": new x.Views.Search(),
 			".shelf": new s.Views.ShelfView(),
-			//".product": new s.Views.ProductView(),
 		}).render();
 	},
 
