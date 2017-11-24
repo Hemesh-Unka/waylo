@@ -67,8 +67,11 @@ app.get('/api/catalog/search', function (req, res) {
 
 app.get('/api/catalog/products/:product', function (req, res) {
   Item.findOne({
-  //  title: req.params.product,
-    uri: req.params.product,
+    if (/^ *$/.test(req.params.product)) {
+      title: req.params.product,
+    } else {
+      uri: req.params.product,
+    }
   }, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
