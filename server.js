@@ -66,15 +66,18 @@ app.get('/api/catalog/search', function (req, res) {
 });
 
 app.get('/api/catalog/products/:product', function (req, res) {
+  var queryType = {};
 
   if (/\S/.test(req.params.product)) {
     var queryType = {
       title: req.params.product,
     };
+    return queryType;
   } else {
     var queryType = {
       uri: req.params.product,
     };
+    return queryType;
   }
 
   Item.findOne(queryType, function (err, docs) {
