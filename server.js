@@ -83,9 +83,10 @@ app.get('/api/uri', function(req, res) {
     }
 
     for (var i = 0; i < docs.length; i++) {
+
       var test = docs[i].id;
       var title = docs[i].title;
-      var uri = title.toLowerCase().trim().split(/\s+/).join('-');
+      var uris = title.toLowerCase().trim().split(/\s+/).join('-');
 
       //docs[i].uri = uri;
 
@@ -93,7 +94,7 @@ app.get('/api/uri', function(req, res) {
           id: test
         }, {
           $set: {
-            uri: uri
+            uri: uris
           }
         },
         function(err, doc) {
