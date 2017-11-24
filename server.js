@@ -101,8 +101,9 @@ app.get('/api/uri', function (req, res) {
 
       docs[i].uri = uri;
 
-      console.log(docs[0]);
     }
+    
+    console.log(docs[0]);
   });
 });
 
