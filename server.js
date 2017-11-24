@@ -98,7 +98,10 @@ app.get('/api/uri', function (req, res) {
     for (var i = 0; i < docs.length; i++) {
       var title = docs[i].title;
       var uri = title.toLowerCase().trim().split(/\s+/).join('-');
-      console.log(uri);
+
+      docs[i].uri = uri;
+
+      docs.save;
     }
   });
 });
