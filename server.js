@@ -80,7 +80,9 @@ app.get('/api/uri', function (req, res) {
       handleError(res, err.message, 'Failed to get products.');
     } else {
 
-      console.log(docs[0]);
+      var test = docs[0];
+
+      console.log(test.title);
 
       //res.send(docs.title);
     }
