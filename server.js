@@ -76,20 +76,6 @@ app.get('/api/catalog/products/:product', function(req, res) {
   });
 });
 
-/*db.collection.find({ _id: ObjectId('4d2d8deff4e6c1d71fc29a07') })
-.forEach(function (doc) {
-doc.events.forEach(function (event) {
-if (event.profile === 10) {
-event.handled=0;
-}
-});
-db.collection.save(doc);
-});
-
-for (var i = 0; i < docs.length; i++) {
-  var title = docs[i].title;
-  var uri = title.toLowerCase().trim().split(/\s+/).join('-');*/
-
 app.get('/api/uri', function (req, res) {
   Item.find({}, function (err, docs) {
     if (err) {
@@ -102,6 +88,7 @@ app.get('/api/uri', function (req, res) {
 
       docs[i].uri = uri;
 
+      docs[i].save;
     }
 
     console.log(docs[0]);
