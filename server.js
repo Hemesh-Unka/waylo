@@ -77,34 +77,28 @@ app.get('/api/catalog/products/:product', function(req, res) {
   });
 });
 
-app.get('/api/uri', function(req, res) {
-  Item.find({}, function(err, docs) {
+app.get('/api/uri', function (req, res) {
+  Item.find({}, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to get products.');
     }
 
     for (var i = 0; i < docs.length; i++) {
-
-      var test = docs[i].id;
-      var title = docs[i].title;
-      var uris = title.toLowerCase().trim().split(/\s+/).join('-');
-
-      //docs[i].uri = uri;
-
+      var newUri = docs[i].title.toLowerCase().trim().split(/\s+/).join('-');
       Item.findOneAndUpdate({
-          id: test
+          id: docs[i].id,
         }, {
           $set: {
-            uri: uris
-          }
+            uri: newUri,
+          },
         },
-        function(err, doc) {
+        function (err, doc) {
           if (err) {
-            console.log("Something wrong when updating data!");
+            console.log('Something wrong when updating data!');
           }
+          
           console.log(doc);
         });
-
     }
   });
 });
