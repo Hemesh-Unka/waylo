@@ -75,13 +75,12 @@ app.get('/api/catalog/products/:product', function (req, res) {
 });
 
 app.get('/api/uri', function (req, res) {
-  Item.find({}, function (err, docs) {
+  Item.find({}, 'title', function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to get products.');
     } else {
 
-      var test = docs[0];
-      console.log(test.title);
+      console.log(docs);
 
       //res.send(docs.title);
     }
@@ -105,7 +104,7 @@ app.get('/api/catalog/autosuggest', function (req, res) {
   var q = req.query.q;
 
   Item.find({
-    'title': new RegExp(q, 'i')
+    'title': new RegExp(q, 'i'),
   }, 'title', function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
