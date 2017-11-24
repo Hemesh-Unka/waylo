@@ -66,7 +66,6 @@ app.get('/api/catalog/search', function (req, res) {
 });
 
 app.get('/api/catalog/products/:product', function (req, res) {
-  var queryType = {};
 
   if (/\S/.test(req.params.product)) {
     var queryType = {
@@ -79,6 +78,8 @@ app.get('/api/catalog/products/:product', function (req, res) {
     };
     return queryType;
   }
+
+  console.log(queryType);
 
   Item.findOne(queryType, function (err, docs) {
     if (err) {
