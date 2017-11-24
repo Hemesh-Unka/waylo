@@ -85,7 +85,7 @@ app.get('/api/uri', function (req, res) {
         var title = docs[i].title;
         var uri = title.toLowerCase().trim().split(/\s+/).join('-');
 
-        docs[i].uri = url;
+        docs[i].uri = uri;
 
         docs[i].save(function (err) {
           if (err) {
