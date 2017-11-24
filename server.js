@@ -76,25 +76,32 @@ app.get('/api/catalog/products/:product', function(req, res) {
   });
 });
 
-app.get('/api/uri', function (req, res) {
-  Item.find({}, function (err, docs) {
+app.get('/api/uri', function(req, res) {
+  Item.find({}, function(err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to get products.');
     }
 
     for (var i = 0; i < docs.length; i++) {
+      var test = docs[i].id;
       var title = docs[i].title;
       var uri = title.toLowerCase().trim().split(/\s+/).join('-');
 
       //docs[i].uri = uri;
 
-      Item.findOneAndUpdate({title: docs[i].title}, {$set:{uri:uri}}, function(err, doc){
-          if(err){
-              console.log("Something wrong when updating data!");
+      Item.findOneAndUpdate({
+          id: test
+        }, {
+          $set: {
+            uri: uri
           }
-
+        },
+        function(err, doc) {
+          if (err) {
+            console.log("Something wrong when updating data!");
+          }
           console.log(doc);
-      });
+        });
 
     }
   });
