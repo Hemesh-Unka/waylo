@@ -48,6 +48,7 @@ function handleError(res, reason, message, code) {
 
 var itemSchema = mongoose.Schema({
   title: String,
+  uri: String,
   any: {},
 });
 
@@ -102,7 +103,7 @@ app.get('/api/uri', function (req, res) {
       docs[i].uri = uri;
 
     }
-    
+
     console.log(docs[0]);
   });
 });
