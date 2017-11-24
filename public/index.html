@@ -105,7 +105,7 @@
 <script id="productTemplate" type="text/template">
  <div class="card">
   <div class="card-body">
-   <h6 class="card-title"><a href="search/<%= title %>"><%= title %></a></h6>
+   <h6 class="card-title"><a href="search/<%= uri %>"><%= title %></a></h6>
    <h6 class="card-subtitle mb-2 text-muted"><%= unit %></h6>
    <ul>
      <% _.each( _.last(prices, 2), function( priceobj ) {%> <li> <%= priceobj.price %> </li><li> <%= priceobj.date %> </li> <% } ); %>

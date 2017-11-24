@@ -16,23 +16,23 @@ mongoose.connect(process.env.MONGOLAB_URI);
 
 // CONNECTION EVENTS
 // When successfully connected
-mongoose.connection.on('connected', function() {
+mongoose.connection.on('connected', function () {
   console.log('Mongoose default connection open');
 });
 
 // If the connection throws an error
-mongoose.connection.on('error', function(err) {
+mongoose.connection.on('error', function (err) {
   console.log('Mongoose default connection error: ' + err);
 });
 
 // When the connection is disconnected
-mongoose.connection.on('disconnected', function() {
+mongoose.connection.on('disconnected', function () {
   console.log('Mongoose default connection disconnected');
 });
 
 // If the Node process ends, close the Mongoose connection
-process.on('SIGINT', function() {
-  mongoose.connection.close(function() {
+process.on('SIGINT', function () {
+  mongoose.connection.close(function () {
     console.log('Mongoose default connection disconnected through app termination');
     process.exit(0);
   });
@@ -55,8 +55,8 @@ var itemSchema = mongoose.Schema({
 
 var Item = mongoose.model('Item', itemSchema, 'products');
 
-app.get('/api/catalog/search', function(req, res) {
-  Item.find({}, function(err, docs) {
+app.get('/api/catalog/search', function (req, res) {
+  Item.find({}, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to get products.');
     } else {
@@ -65,10 +65,10 @@ app.get('/api/catalog/search', function(req, res) {
   });
 });
 
-app.get('/api/catalog/products/:product', function(req, res) {
+app.get('/api/catalog/products/:product', function (req, res) {
   Item.findOne({
     title: req.params.product,
-  }, function(err, docs) {
+  }, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
     } else {
@@ -76,6 +76,8 @@ app.get('/api/catalog/products/:product', function(req, res) {
     }
   });
 });
+
+// Code that adds uri to each item.
 
 app.get('/api/uri', function (req, res) {
   Item.find({}, function (err, docs) {
@@ -96,7 +98,7 @@ app.get('/api/uri', function (req, res) {
           if (err) {
             console.log('Something wrong when updating data!');
           }
-          
+
           console.log(doc);
         });
     }
@@ -116,12 +118,12 @@ app.get('/catalog/clean', function (req, res) {
 });
 */
 
-app.get('/api/catalog/autosuggest', function(req, res) {
+app.get('/api/catalog/autosuggest', function (req, res) {
   var q = req.query.q;
 
   Item.find({
     title: new RegExp(q, 'i'),
-  }, 'title', function(err, docs) {
+  }, 'title', function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
     } else {
@@ -130,6 +132,6 @@ app.get('/api/catalog/autosuggest', function(req, res) {
   });
 });
 
-app.listen(process.env.PORT, function() {
+app.listen(process.env.PORT, function () {
   console.log('Example app listening on port 8080!');
 });
