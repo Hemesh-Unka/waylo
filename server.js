@@ -85,7 +85,7 @@ app.get('/api/uri', function (req, res) {
       for (var i = 0; i < docs.length; i++) {
         var title = docs[i].title;
 
-        title = title.replace(/\s/g, '-').toLowerCase()​​​​​​​;
+        title = title.toLowerCase().trim().split(/\s+/).join('-');
 
         console.log(title);
       }
