@@ -88,10 +88,10 @@ app.get('/api/uri', function (req, res) {
 
       //docs[i].uri = uri;
 
-      Item.update(
+      console.log(Item.update(
        { id: docs[i].id },
        { $set: { uri: uri } },
-     );
+     ));
 
     }
 
