@@ -82,7 +82,9 @@ app.get('/api/uri', function (req, res) {
 
       var test = docs[0];
 
-      console.log(test);
+      for (var key in test) {
+        console.log(key);
+      }
 
       //res.send(docs.title);
     }
