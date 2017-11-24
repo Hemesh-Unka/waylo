@@ -101,7 +101,7 @@ app.get('/api/uri', function (req, res) {
 
       docs[i].uri = uri;
 
-      docs.save;
+      console.log(docs[i]);
     }
   });
 });
