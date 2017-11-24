@@ -66,13 +66,18 @@ app.get('/api/catalog/search', function (req, res) {
 });
 
 app.get('/api/catalog/products/:product', function (req, res) {
-  Item.findOne({
-    if (/\S/.test(req.params.product)) {
+
+  if (/\S/.test(req.params.product)) {
+    var queryType = {
       title: req.params.product,
-    } else {
+    };
+  } else {
+    var queryType = {
       uri: req.params.product,
-    }
-  }, function (err, docs) {
+    };
+  }
+
+  Item.findOne(queryType, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
     } else {
