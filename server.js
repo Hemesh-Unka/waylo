@@ -1,4 +1,3 @@
-// Express
 var express = require('express');
 var app = express();
 
@@ -66,7 +65,7 @@ app.get('/api/catalog/search', function (req, res) {
 
 app.get('/api/catalog/products/:product', function (req, res) {
   Item.findOne({
-    'title': req.params.product,
+    title: req.params.product,
   }, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
@@ -77,17 +76,22 @@ app.get('/api/catalog/products/:product', function (req, res) {
 });
 
 app.get('/api/uri', function (req, res) {
-  Item.find({}, 'title', function (err, docs) {
+  Item.find({}, function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to get products.');
     } else {
 
       for (var i = 0; i < docs.length; i++) {
         var title = docs[i].title;
+        var uri = title.toLowerCase().trim().split(/\s+/).join('-');
 
-        title = title.toLowerCase().trim().split(/\s+/).join('-');
+        docs[i].uri = url;
 
-        console.log(title);
+        docs[i].save(function (err) {
+          if (err) {
+            console.log(err);
+          }
+        });
       }
 
       //res.send(docs.title);
