@@ -89,9 +89,9 @@ app.get('/api/uri', function (req, res) {
       docs[i].uri = uri;
 
       Item.update(
-       { id: docs[i].id}, //query, you can also query for email
+       { id: docs[i].id }, //query, you can also query for email
        { $set: { uri: uri } },
-       //{"multi": true} //for multiple documents
+       {"multi": true} //for multiple documents
      );
 
     }
