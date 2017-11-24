@@ -94,7 +94,7 @@ app.get('/api/uri', function (req, res) {
         });
       }
 
-      //res.send(docs.title);
+      console.log(docs);
     }
   });
 });
