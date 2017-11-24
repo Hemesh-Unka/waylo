@@ -83,7 +83,11 @@ app.get('/api/uri', function (req, res) {
     } else {
 
       for (var i = 0; i < docs.length; i++) {
-        console.log(docs[i].title);
+        var title = docs[i].title;
+
+        title = title.replace(/\s/g, '-').toLowerCase()​​​​​​​;
+
+        console.log(title);
       }
 
       //res.send(docs.title);
@@ -108,7 +112,7 @@ app.get('/api/catalog/autosuggest', function (req, res) {
   var q = req.query.q;
 
   Item.find({
-    'title': new RegExp(q, 'i'),
+    title: new RegExp(q, 'i'),
   }, 'title', function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
