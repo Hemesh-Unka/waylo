@@ -94,9 +94,12 @@ app.get('/api/uri', function (req, res) {
     if (err) {
       handleError(res, err.message, 'Failed to get products.');
     }
-  }).forEach(function (doc) {
-    var title = doc.title;
-    console.log(title);
+
+    for (var i = 0; i < docs.length; i++) {
+      var title = docs[i].title;
+      var uri = title.toLowerCase().trim().split(/\s+/).join('-');
+      console.log(uri);
+    }
   });
 });
 
