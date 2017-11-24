@@ -67,12 +67,14 @@ app.get('/api/catalog/search', function (req, res) {
 
 app.get('/api/catalog/products/:product', function (req, res) {
 
-  if (/\S/.test(req.params.product)) {
+  if (req.params.product.indexOf(' ') !== -1) {
+    console.log("TRUE");
     var queryType = {
       title: req.params.product,
     };
     return queryType;
   } else {
+    console.log("FALSE");
     var queryType = {
       uri: req.params.product,
     };
