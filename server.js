@@ -67,7 +67,7 @@ app.get('/api/catalog/search', function (req, res) {
 
 app.get('/api/catalog/products/:product', function (req, res) {
   Item.findOne({
-    if (/^ *$/.test(req.params.product)) {
+    if (/\S/.test(req.params.product)) {
       title: req.params.product,
     } else {
       uri: req.params.product,
