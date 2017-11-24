@@ -88,7 +88,7 @@ app.get('/api/uri', function (req, res) {
 
       //docs[i].uri = uri;
 
-      Item.findOneAndUpdate({id: docs[i].id}, {$set:{uri:uri}}, function(err, doc){
+      Item.findOneAndUpdate({title: docs[i].title}, {$set:{uri:uri}}, function(err, doc){
           if(err){
               console.log("Something wrong when updating data!");
           }
