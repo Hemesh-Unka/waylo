@@ -81,9 +81,9 @@ app.get('/api/catalog/products/:product', function (req, res) {
     return queryType;
   }
 
-  console.log(queryType);
+  console.log(queryType[0]);
 
-  Item.findOne(queryType, function (err, docs) {
+  Item.findOne(queryType[0], function (err, docs) {
     if (err) {
       handleError(res, err.message, 'Failed to find anything.');
     } else {
