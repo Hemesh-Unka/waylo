@@ -47,6 +47,7 @@ function handleError(res, reason, message, code) {
 }
 
 var itemSchema = mongoose.Schema({
+  id: Number,
   title: String,
   uri: String,
   any: {},
