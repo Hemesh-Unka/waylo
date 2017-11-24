@@ -48,8 +48,10 @@ function handleError(res, reason, message, code) {
 }
 
 var itemSchema = mongoose.Schema({
+  title: String,
   any: {},
 });
+
 var Item = mongoose.model('Item', itemSchema, 'products');
 
 app.get('/api/catalog/search', function (req, res) {
