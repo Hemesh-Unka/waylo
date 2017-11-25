@@ -52,7 +52,11 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
           axis: {
             x: {
-              extent: [new Date();, new Date()-7],
+
+              var myDate = new Date();
+              var myDate5 = myDate.setDate(myDate.getDate() - 7);
+
+              extent: [myDate, myDate5],
               type: 'timeseries',
               tick: {
                 format: '%d-%m-%Y',
