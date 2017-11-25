@@ -48,7 +48,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
               xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
               value: ['price'],
             },
-            xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
+            xFormat: '%Y-%m-%dT%H:%M:%S.%LZ'
           },
 
           axis: {
@@ -56,23 +56,23 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
               type: 'timeseries',
               tick: {
                 format: '%d-%m-%Y',
-                fit: true,
+                fit: true
               },
             },
             y: {
               tick: {
-                format: {
-                  d3.format(",.2f")
-                },
+                format: d3.format(',.2f'),
               },
             },
           },
           zoom: {
             //enabled: true,
             rescale: true,
-          },
+          }
         });
+
       },
+
     }),
 
     // Shelf Product View
