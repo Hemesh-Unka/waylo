@@ -59,7 +59,11 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
                 fit: true
               },
             },
-
+            y: {
+              tick: {
+                format: d3.format('$,'),
+              },
+            },
           },
           zoom: {
             //enabled: true,
