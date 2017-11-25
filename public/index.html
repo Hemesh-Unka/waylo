@@ -276,9 +276,43 @@
       <h3 class="card-header"><%= title %></h3>
       <div class="card-body">
         <h5 class="card-title text-muted"><%= unit %> - <%= dateAdded %></h5>
-        <div id="chart"><p class="card-text"></p></div>
+        <div id="chart"></div>
       </div>
+
+      <div class="row">
+         <div class="col">
+           Photo here perhaps
+         </div>
+         <div class="col">
+
+           <table class="table">
+             <thead>
+               <tr>
+                 <th scope="col">Date Logged</th>
+                 <th scope="col">Price</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <th scope="row">1</th>
+                 <td>Mark</td>
+                 <td>Otto</td>
+                 <td>@mdo</td>
+               </tr>
+             </tbody>
+           </table>
+
+
+
+         </div>
+       </div>
+
+
+
     </div>
+
+
+
 
       <ul>
         <% _.each( prices, function( priceobj ) {%>
