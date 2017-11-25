@@ -1,116 +1,122 @@
-define("js/modules/shelf", ["jquery", "underscore", "backbone", "app", "c3", "d3"], function($, _, n, r, c3, d3) {
- var s = {}, o = {}, u = {};
+define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3'], function ($, _, n, r, c3, d3) {
+  var s = {},
+    o = {},
+    u = {};
 
-// Models
-		return s.Product = n.Model.extend({
-			idAttribute: "title",
-			urlRoot: 'api/catalog/products/',
-		}),
+  // Models
+  return s.Product = n.Model.extend({
+      idAttribute: 'title',
+      urlRoot: 'api/catalog/products/',
+    }),
 
-// Collections
-		o.Basket = n.Collection.extend({
-			model: s.Product,
-			url: 'api/catalog/search',
-		}),
+    // Collections
+    o.Basket = n.Collection.extend({
+      model: s.Product,
+      url: 'api/catalog/search',
+    }),
 
-// Views
-		// Individual Product View
-		u.productPreviewView = n.View.extend({
+    // Views
+    // Individual Product View
+    u.productPreviewView = n.View.extend({
 
-			initialize : function() {
-				this.listenTo(this.model, 'reset update', this.render);
-			},
+      initialize: function () {
+        this.listenTo(this.model, 'reset update', this.render);
+      },
 
-			template: _.template( $( '#productPreviewTemplate' ).html() ),
+      template: _.template($('#productPreviewTemplate').html()),
 
-			render: function(layout) {
-				return layout(this).render({ model: this.model.attributes });
+      render: function (layout) {
+        return layout(this).render({
+          model: this.model.attributes,
+        });
 
-			},
+      },
 
-		  afterRender: function() {
+      afterRender: function () {
 
-		  var obj = this.model.attributes.prices;
+        var obj = this.model.attributes.prices;
 
-			var chart = c3.generate({
-			  data: {
+        var chart = c3.generate({
+          data: {
 
-			    json: obj,
-				//xFormat: '%Y-%m-%d %H:%M:%S',
+            json: obj,
+            //xFormat: '%Y-%m-%d %H:%M:%S',
 
-			    keys: {
-			        x: 'date',
-			        xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
-			        value: ['price']
-			    },
-			    xFormat: '%Y-%m-%dT%H:%M:%S.%LZ'
-			},
+            keys: {
+              x: 'date',
+              xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
+              value: ['price']
+            },
+            xFormat: '%Y-%m-%dT%H:%M:%S.%LZ'
+          },
 
-			axis: {
-			x: {
-			type: 'timeseries',
-			tick: {
-				format: '%Y-%m-%d %H:%M',
-			}
-			}
+          axis: {
+            x: {
+              type: 'timeseries',
+              tick: {
+                format: '%d-%m-%Y',
+              }
+            }
 
-    	},
-    	zoom: {
-    	enabled: true,
-  		rescale: true
-		}
-		});
+          },
+          zoom: {
+            enabled: true,
+            rescale: true
+          }
+        });
 
-		  },
+      },
 
-		}),
+    }),
 
-		// Shelf Product View
-		u.ProductView = n.View.extend({
+    // Shelf Product View
+    u.ProductView = n.View.extend({
 
-			template: _.template( $( '#productTemplate' ).html() ),
+      template: _.template($('#productTemplate').html()),
 
-			tagName: 'div',
+      tagName: 'div',
 
-			className: 'col-sm productPreview',
+      className: 'col-sm productPreview',
 
-			events: {
-				"click li": "showProduct"
-			},
+      events: {
+        'click li': 'showProduct'
+      },
 
-			render: function(layout) {
-				return layout(this).render({ model: this.model.attributes });
-			},
+      render: function (layout) {
+        return layout(this).render({
+          model: this.model.attributes
+        });
+      },
 
-			showProduct: function(e) {
-				e.preventDefault();
-				r.router.go("search/" + this.model.get("title"));
-			}
-		}),
+      showProduct: function (e) {
+        e.preventDefault();
+        r.router.go('search/' + this.model.get('title'));
+      }
+    }),
 
 
-		// Shelf View
-		u.ShelfView = n.View.extend({
-			tagName: 'div',
-			className: 'row equal-height',
+    // Shelf View
+    u.ShelfView = n.View.extend({
+      tagName: 'div',
+      className: 'row equal-height',
 
-			initialize : function() {
-				this.listenTo(this.collection, 'reset update', this.render);
-			},
+      initialize: function () {
+        this.listenTo(this.collection, 'reset update', this.render);
+      },
 
-			beforeRender: function() {
-				this.collection.each(function(item) {
+      beforeRender: function () {
+        this.collection.each(function (item) {
 
-					this.insertView("", new u.ProductView({
-						model: item
-					}));
+          this.insertView('', new u.ProductView({
+            model: item
+          }));
 
-				}, this);
-			}
+        }, this);
+      }
 
-			}), {
-				Models: s,
-				Collections: o,
-				Views: u
-			}
-		})
+    }), {
+      Models: s,
+      Collections: o,
+      Views: u
+    }
+})

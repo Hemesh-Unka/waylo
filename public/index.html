@@ -280,24 +280,28 @@
 
 
 
-           <table class="table table-hover">
-             <thead>
-               <tr>
-                 <th scope="col">Date Logged</th>
-                 <th scope="col">Price</th>
-               </tr>
-             </thead>
-             <tbody>
-               <% _.each( prices, function( priceobj ) {%>
-                  <tr>
-                 <td><%= priceobj.date %></td>
-                 <td>$<%= priceobj.price %></td>
-               </tr>
-               <% } ); %>
-             </tbody>
-           </table>
-    </div>
-    </div>
+  <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Date Logged</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% _.each( prices, function( priceobj ) {%>
+      <tr>
+        <td>
+          <%= priceobj.date %>
+        </td>
+        <td>$
+          <%= priceobj.price %>
+        </td>
+      </tr>
+      <% } ); %>
+  </tbody>
+</table>
+</div>
+</div>
 
   </script>
 
