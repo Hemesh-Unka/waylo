@@ -48,7 +48,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
               xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
               value: ['price'],
             },
-            xFormat: '%Y-%m-%dT%H:%M:%S.%LZ'
+            xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
           },
 
           axis: {
@@ -56,7 +56,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
               type: 'timeseries',
               tick: {
                 format: '%d-%m-%Y',
-                fit: true
+                fit: true,
               },
             },
             y: {
@@ -68,11 +68,9 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
           zoom: {
             //enabled: true,
             rescale: true,
-          }
+          },
         });
-
       },
-
     }),
 
     // Shelf Product View
@@ -85,21 +83,20 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       className: 'col-sm productPreview',
 
       events: {
-        'click li': 'showProduct'
+        'click li': 'showProduct',
       },
 
       render: function (layout) {
         return layout(this).render({
-          model: this.model.attributes
+          model: this.model.attributes,
         });
       },
 
       showProduct: function (e) {
         e.preventDefault();
         r.router.go('search/' + this.model.get('title'));
-      }
+      },
     }),
-
 
     // Shelf View
     u.ShelfView = n.View.extend({
@@ -114,15 +111,15 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
         this.collection.each(function (item) {
 
           this.insertView('', new u.ProductView({
-            model: item
+            model: item,
           }));
 
         }, this);
-      }
+      },
 
     }), {
       Models: s,
       Collections: o,
-      Views: u
-    }
-})
+      Views: u,
+    };
+});
