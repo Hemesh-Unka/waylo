@@ -61,7 +61,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
             },
             y: {
               tick: {
-                format: d3.format('$,'),
+                format: d3.format('$.2f'),
               },
             },
           },
