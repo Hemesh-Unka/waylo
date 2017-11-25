@@ -281,9 +281,9 @@
 
       <div class="row">
          <div class="col">
-           Photo here perhaps
+           One of three columns
          </div>
-         <div class="col">
+         <div class="col-">
 
            <table class="table">
              <thead>
@@ -293,38 +293,19 @@
                </tr>
              </thead>
              <tbody>
-               <tr>
-                 <th scope="row">1</th>
-                 <td>Mark</td>
-                 <td>Otto</td>
-                 <td>@mdo</td>
+               <% _.each( prices, function( priceobj ) {%>
+                  <tr>
+                 <td><%= priceobj.date %></td>
+                 <td><%= priceobj.price %></td>
                </tr>
+               <% } ); %>
              </tbody>
            </table>
 
-
-
          </div>
        </div>
-
-
-
     </div>
 
-
-
-
-      <ul>
-        <% _.each( prices, function( priceobj ) {%>
-          <li>
-            <%= priceobj.price %>
-          </li>
-          <li>
-            <%= priceobj.date %>
-          </li>
-          <% } ); %>
-      </ul>
-    </ul>
   </script>
 
   <script id="productTemplate" type="text/template">
