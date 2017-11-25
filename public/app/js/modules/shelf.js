@@ -45,14 +45,14 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
             keys: {
               x: 'date',
               xFormat: '%Y-%m-%dT%H:%M:%S.%LZ',
-              value: ['price']
+              value: ['price'],
             },
             xFormat: '%Y-%m-%dT%H:%M:%S.%LZ'
           },
 
           axis: {
             x: {
-              extent: [5, 10],
+              extent: [new Date();, new Date()-7],
               type: 'timeseries',
               tick: {
                 format: '%d-%m-%Y',
@@ -62,7 +62,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
           },
           zoom: {
             //enabled: true,
-            rescale: true
+            rescale: true,
           }
         });
 
