@@ -53,11 +53,10 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
           axis: {
             x: {
-
-              extent: [new Date(), new Date() - new Date(today.getTime()+1000*60*60*24)*7],
               type: 'timeseries',
               tick: {
                 format: '%d-%m-%Y',
+                fit: true
               },
             },
 
