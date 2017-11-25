@@ -52,11 +52,12 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
           axis: {
             x: {
+              extent: [5, 10],
               type: 'timeseries',
               tick: {
                 format: '%d-%m-%Y',
-              }
-            }
+              },
+            },
 
           },
           zoom: {
