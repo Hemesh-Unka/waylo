@@ -61,7 +61,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
           },
           zoom: {
-            enabled: true,
+            //enabled: true,
             rescale: true
           }
         });
