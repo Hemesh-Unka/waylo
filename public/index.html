@@ -280,7 +280,7 @@
 
 
 
-           <table class="table">
+           <table class="table table-hover">
              <thead>
                <tr>
                  <th scope="col">Date Logged</th>
@@ -291,7 +291,7 @@
                <% _.each( prices, function( priceobj ) {%>
                   <tr>
                  <td><%= priceobj.date %></td>
-                 <td><%= priceobj.price %></td>
+                 <td>$<%= priceobj.price %></td>
                </tr>
                <% } ); %>
              </tbody>
