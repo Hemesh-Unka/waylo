@@ -72,7 +72,7 @@ app.get('/api/catalog/products/:product', function (req, res) {
     uri: queryString,
   };
 
-  // Handles wether search query or uri is required
+  // Handles which query to be searched (uri, or product title)
   queryString.indexOf(' ') !== -1 ? queryType = { title: queryString } : queryType;
 
   Item.findOne(queryType, function (err, docs) {
