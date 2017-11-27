@@ -32,11 +32,12 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
       },
 
+      //var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+      //_.max(stooges, function(stooge){ return stooge.age; });
+      //=> {name: 'curly', age: 60};
+
       minOrMax: function (arr, type) {
-        Math._.type.apply(Math, arr.map(function (o)
-        {
-          return o.price;
-        }));
+        _.type(arr, function (price) { return arr.price;  });
       },
 
       //var res = Math.min.apply(Math,arr.map(function(o){return o.price;}))
