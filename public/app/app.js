@@ -39,11 +39,15 @@ define("app",["backbone.layoutmanager"], function(r) {
 
       // Create a new Layout with options.
       var layout = new Backbone.Layout(_.extend({
-        el: "#container"
+        el: '#container',
       }, options));
 
       // Cache the refererence.
       return this.layout = layout;
-    }
+    },
+
+    maxOrMin: function (type, arrObj, key) {
+      Math.type(...arrObj.map(elt => elt.price));
+    },
   }, Backbone.Events);
 });
