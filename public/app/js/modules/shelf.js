@@ -41,6 +41,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
         var obj = this.model.attributes.prices;
 
         console.log(Math.max(...obj.map(elt => elt.price)));
+        console.log(Math.min(...obj.map(elt => elt.price)));
 
         var chart = c3.generate({
           data: {
@@ -62,9 +63,10 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
             },
             y: {
               lines: [
-                { value: Math.max(...obj.map(elt => elt.price)), text: 'Max Price', position: 'finish' },
-                { value: Math.min(...obj.map(elt => elt.price)), text: 'Min Price', position: 'start' },
+                  {value: 2, text: 'Label 50 for y'},
+                  {value: 6, text: 'Label 350 for y', position: 'middle'},
               ],
+
               tick: {
                 format: d3.format(',.2f'),
               },
