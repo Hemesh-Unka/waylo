@@ -32,6 +32,10 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
       },
 
+      minOrMax: function(arr, minMax) {
+        return Math.minMax.apply(Math,arr.map(function(o){return o.price;}))
+      },
+
       afterRender: function () {
 
         var obj = this.model.attributes.prices;
@@ -63,8 +67,8 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
             },
             y: {
               lines: [
-                  { value: obj.max, text: 'Max Price', position: 'finish' },
-                  { value: 1300, text: 'Min Price', position: 'start' },
+                  { value: this.minOrMax(obj, max), text: 'Max Price', position: 'finish' },
+                  { value: this.minOrMax(obj, min), text: 'Min Price', position: 'start' },
               ],
               tick: {
                 format: d3.format(',.2f'),
