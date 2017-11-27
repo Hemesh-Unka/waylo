@@ -39,11 +39,12 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       afterRender: function () {
 
         var obj = this.model.attributes.prices;
-        var min = app.maxOrMin("min", obj);
-        var max = app.maxOrMin("max", obj);
 
-        console.log(min);
-        console.log(max);
+        // Get maximum and mininum values
+        var min = app.maxOrMin('min', obj);
+        var max = app.maxOrMin('max', obj);
+
+        var same = max != min ? true : false;
 
         var chart = c3.generate({
           data: {
@@ -69,21 +70,22 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
               },
             },
           },
+
           grid: {
-            y: {
-              lines: [{
-                value: Math.max(...obj.map(elt => elt.price)),
-                text: 'Max Price',
-                position: 'start',
-              },
-                {
-                  value: Math.min(...obj.map(elt => elt.price)),
-                  text: 'Min Price',
+              y: {
+                lines: [{
+                  value: max,
+                  text: 'Max Price',
                   position: 'start',
                 },
-              ],
+                  {
+                    value: min,
+                    text: 'Min Price',
+                    position: 'start',
+                  },
+                ],
+              },
             },
-          },
           zoom: {
             //enabled: true,
             rescale: true,
