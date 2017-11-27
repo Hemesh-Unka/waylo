@@ -39,7 +39,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       afterRender: function () {
 
         var obj = this.model.attributes.prices;
-        var min = app.maxOrMin("min", obj, "price");
+        var min = app.maxOrMin("min", obj, price);
         var max = Math.max(...obj.map(elt => elt.price));
 
         console.log(min);
