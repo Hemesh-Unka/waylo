@@ -65,19 +65,22 @@ app.get('/api/catalog/search', function (req, res) {
   });
 });
 
-function stringOrUri(string) {
+// Checks to see if string has spaces
+function hasSpaces(string) {
   return string.indexOf(' ') !== -1;
+}
+
+// Returns string into uri format ie. some-random-beer-brand
+function createUri(string) {
+  return string.toLowerCase().trim().split(/\s+/).join('-');
 }
 
 app.get('/api/catalog/products/:product', function (req, res) {
 
-  // Querysting will always be the same
-  // we just want to change the key in an object
-
-  var queryString = req.params.product;
+  var query = req.params.product;
 
   // Handles which query to be searched (uri, or product title)
-  stringOrUri(queryString) ? queryType = { title: queryString } : queryType = { uri: queryString };
+  hasSpaces(query) ? queryType = { title: query } : queryType = { uri: query };
 
   Item.findOne(queryType, function (err, docs) {
     if (err) {
@@ -97,7 +100,7 @@ app.get('/api/uri', function (req, res) {
     }
 
     for (var i = 0; i < docs.length; i++) {
-      var newUri = docs[i].title.toLowerCase().trim().split(/\s+/).join('-');
+      var newUri = createUri(docs[i].title);
       Item.findOneAndUpdate({
           id: docs[i].id,
         }, {
