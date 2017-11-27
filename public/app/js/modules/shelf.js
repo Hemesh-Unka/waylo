@@ -40,6 +40,8 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
         var obj = this.model.attributes.prices;
 
+        console.log(Math.max(...obj.map(elt => elt.price)));
+
         var chart = c3.generate({
           data: {
             json: obj,
