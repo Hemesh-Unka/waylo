@@ -44,8 +44,6 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
         var min = app.maxOrMin('min', obj);
         var max = app.maxOrMin('max', obj);
 
-        var same = max != min ? true : false;
-
         var chart = c3.generate({
           data: {
             json: obj,
@@ -70,7 +68,6 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
               },
             },
           },
-
           grid: {
               y: {
                 lines: [{
