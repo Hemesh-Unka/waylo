@@ -32,24 +32,9 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
       },
 
-      //var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
-      //_.max(stooges, function(stooge){ return stooge.age; });
-      //=> {name: 'curly', age: 60};
-
-      minPrice: function (arr) {
-        _.min(arr, function (price) { return arr.price; });
-      },
-
-      maxPrice: function (arr) {
-        _.max(arr, function (price) { return arr.price; });
-      },
-
       afterRender: function () {
 
         var obj = this.model.attributes.prices;
-
-        // checks if object works
-        console.log(this.maxPrice(obj));
 
         var chart = c3.generate({
           data: {
@@ -71,8 +56,17 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
             },
             y: {
               lines: [
-                  { value: this.maxPrice(obj), text: 'Max Price', position: 'finish' },
-                  { value: this.minPrice(obj), text: 'Min Price', position: 'start' },
+                  { value: function (obj) {
+                    _.max(obj, function (price) {
+                      return arr.price;
+                    });
+                  }, text: 'Max Price', position: 'finish', },
+
+                  { value: function (obj) {
+                    _.min(obj, function (price) {
+                      return arr.price;
+                    });
+                  }, text: 'Min Price', position: 'start', },
               ],
               tick: {
                 format: d3.format(',.2f'),
