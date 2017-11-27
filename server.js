@@ -112,8 +112,6 @@ app.get('/api/uri', function (req, res) {
           if (err) {
             console.log('Something wrong when updating data!');
           }
-
-          console.log(doc);
         });
     }
   });
