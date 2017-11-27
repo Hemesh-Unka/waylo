@@ -33,7 +33,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       },
 
       minOrMax: function (arr, type) {
-        Math.type.apply(Math, arr.map(function (o)
+        Math._.type.apply(Math, arr.map(function (o)
         {
           return o.price;
         }));
