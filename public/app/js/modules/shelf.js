@@ -39,10 +39,11 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       afterRender: function () {
 
         var obj = this.model.attributes.prices;
-        var min = app.maxOrMin("min", obj, price);
-        var max = Math.max(...obj.map(elt => elt.price));
+        var min = app.maxOrMin("min", obj);
+        var max = app.maxOrMin("max", obj);
 
         console.log(min);
+        console.log(max);
 
         var chart = c3.generate({
           data: {
