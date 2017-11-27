@@ -61,7 +61,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
             y: {
               lines: [
                 { value: Math.max(...obj.map(elt => elt.price)), text: 'Max Price', position: 'finish' },
-                { value: Math.min(...arr.map(elt => elt.price)), text: 'Min Price', position: 'start' },
+                { value: Math.min(...obj.map(elt => elt.price)), text: 'Min Price', position: 'start' },
               ],
               tick: {
                 format: d3.format(',.2f'),
