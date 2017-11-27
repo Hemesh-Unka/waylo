@@ -1,4 +1,4 @@
-define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3'], function ($, _, n, r, c3, d3) {
+define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3'], function($, _, n, r, c3, d3) {
   var s = {},
     o = {},
     u = {};
@@ -19,13 +19,13 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
     // Individual Product View
     u.productPreviewView = n.View.extend({
 
-      initialize: function () {
+      initialize: function() {
         this.listenTo(this.model, 'reset update', this.render);
       },
 
       template: _.template($('#productPreviewTemplate').html()),
 
-      render: function (layout) {
+      render: function(layout) {
         return layout(this).render({
           model: this.model.attributes,
         });
@@ -36,7 +36,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       //_.max(stooges, function(stooge){ return stooge.age; });
       //=> {name: 'curly', age: 60};
 
-      afterRender: function () {
+      afterRender: function() {
 
         var obj = this.model.attributes.prices;
 
@@ -62,13 +62,23 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
               },
             },
             y: {
-              lines: [
-                  {value: 2, text: 'Label 50 for y'},
-                  {value: 6, text: 'Label 350 for y', position: 'middle'},
-              ],
-
               tick: {
                 format: d3.format(',.2f'),
+              },
+            },
+            grid: {
+              y: {
+                lines: [{
+                  value: Math.max(...obj.map(elt => elt.price)),
+                  text: 'Max Price',
+                  position: 'finish',
+                },
+                  {
+                    value: Math.min(...obj.map(elt => elt.price)),
+                    text: 'Min Price',
+                    position: 'start',
+                  },
+                ],
               },
             },
           },
@@ -93,13 +103,13 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
         'click li': 'showProduct',
       },
 
-      render: function (layout) {
+      render: function(layout) {
         return layout(this).render({
           model: this.model.attributes,
         });
       },
 
-      showProduct: function (e) {
+      showProduct: function(e) {
         e.preventDefault();
         r.router.go('search/' + this.model.get('title'));
       },
@@ -110,12 +120,12 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       tagName: 'div',
       className: 'row equal-height',
 
-      initialize: function () {
+      initialize: function() {
         this.listenTo(this.collection, 'reset update', this.render);
       },
 
-      beforeRender: function () {
-        this.collection.each(function (item) {
+      beforeRender: function() {
+        this.collection.each(function(item) {
 
           this.insertView('', new u.ProductView({
             model: item,
