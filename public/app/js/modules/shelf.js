@@ -37,11 +37,8 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       //=> {name: 'curly', age: 60};
 
       minOrMax: function (arr, type) {
-        _.type(arr, function (price) { return arr.price; });
+        _. + type + (arr, function (price) { return arr.price; });
       },
-
-      //var res = Math.min.apply(Math,arr.map(function(o){return o.price;}))
-
 
       afterRender: function () {
 
