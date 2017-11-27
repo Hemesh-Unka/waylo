@@ -47,7 +47,7 @@ define("app",["backbone.layoutmanager"], function(r) {
     },
 
     maxOrMin: function (arrType, arrObj, arrKey) {
-      Math.arrType(...arrObj.map(elt => elt.arrKey));
+      arrType === 'min' ? Math.min(...arrObj.map(elt => elt.arrKey)) : Math.max(...arrObj.map(elt => elt.arrKey));
     },
   }, Backbone.Events);
 });
