@@ -69,7 +69,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
               lines: [{
                 value: Math.max(...obj.map(elt => elt.price)),
                 text: 'Max Price',
-                position: 'finish',
+                position: 'PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb',
               },
                 {
                   value: Math.min(...obj.map(elt => elt.price)),
