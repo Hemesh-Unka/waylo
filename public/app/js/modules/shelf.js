@@ -1,4 +1,4 @@
-define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3'], function($, _, n, r, c3, d3) {
+define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3'], function ($, _, n, r, c3, d3) {
   var s = {},
     o = {},
     u = {};
@@ -19,13 +19,13 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
     // Individual Product View
     u.productPreviewView = n.View.extend({
 
-      initialize: function() {
+      initialize: function () {
         this.listenTo(this.model, 'reset update', this.render);
       },
 
       template: _.template($('#productPreviewTemplate').html()),
 
-      render: function(layout) {
+      render: function (layout) {
         return layout(this).render({
           model: this.model.attributes,
         });
@@ -33,15 +33,12 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       },
 
       //var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
-      //_.max(stooges, function(stooge){ return stooge.age; });
+      //_.max(stooges, function (stooge){ return stooge.age; });
       //=> {name: 'curly', age: 60};
 
-      afterRender: function() {
+      afterRender: function () {
 
         var obj = this.model.attributes.prices;
-
-        console.log(Math.max(...obj.map(elt => elt.price)));
-        console.log(Math.min(...obj.map(elt => elt.price)));
 
         var chart = c3.generate({
           data: {
@@ -66,20 +63,20 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
                 format: d3.format(',.2f'),
               },
             },
-            grid: {
-              y: {
-                lines: [{
-                  value: Math.max(...obj.map(elt => elt.price)),
-                  text: 'Max Price',
-                  position: 'finish',
-                },
-                  {
-                    value: Math.min(...obj.map(elt => elt.price)),
-                    text: 'Min Price',
-                    position: 'start',
-                  },
-                ],
+          },
+          grid: {
+            y: {
+              lines: [{
+                value: Math.max(...obj.map(elt => elt.price)),
+                text: 'Max Price',
+                position: 'finish',
               },
+                {
+                  value: Math.min(...obj.map(elt => elt.price)),
+                  text: 'Min Price',
+                  position: 'start',
+                },
+              ],
             },
           },
           zoom: {
@@ -103,13 +100,13 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
         'click li': 'showProduct',
       },
 
-      render: function(layout) {
+      render: function (layout) {
         return layout(this).render({
           model: this.model.attributes,
         });
       },
 
-      showProduct: function(e) {
+      showProduct: function (e) {
         e.preventDefault();
         r.router.go('search/' + this.model.get('title'));
       },
@@ -120,12 +117,12 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       tagName: 'div',
       className: 'row equal-height',
 
-      initialize: function() {
+      initialize: function () {
         this.listenTo(this.collection, 'reset update', this.render);
       },
 
-      beforeRender: function() {
-        this.collection.each(function(item) {
+      beforeRender: function () {
+        this.collection.each(function (item) {
 
           this.insertView('', new u.ProductView({
             model: item,
