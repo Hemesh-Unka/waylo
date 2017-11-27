@@ -36,6 +36,8 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
         var obj = this.model.attributes.prices;
 
+        console.log(obj);
+
         var chart = c3.generate({
           data: {
 
