@@ -36,8 +36,12 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       //_.max(stooges, function(stooge){ return stooge.age; });
       //=> {name: 'curly', age: 60};
 
-      minOrMax: function (arr, type) {
-        _. + type + (arr, function (price) { return arr.price; });
+      min: function (arr) {
+        _.min(arr, function (price) { return arr.price; });
+      },
+
+      max: function (arr) {
+        _.max(arr, function (price) { return arr.price; });
       },
 
       afterRender: function () {
