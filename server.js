@@ -4,11 +4,11 @@ var app = express();
 var distDir = __dirname + '/public';
 app.use(express.static(distDir));
 
-// BODY PARSER -----
+// Body parser
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
-// MONGOOSE -----
+// Mongoose
 var mongoose = require('mongoose');
 
 // Create the database connection
@@ -65,15 +65,19 @@ app.get('/api/catalog/search', function (req, res) {
   });
 });
 
+function stringOrUri(string) {
+  return string.indexOf(' ') !== -1;
+}
+
 app.get('/api/catalog/products/:product', function (req, res) {
 
+  // Querysting will always be the same
+  // we just want to change the key in an object
+
   var queryString = req.params.product;
-  var queryType = {
-    uri: queryString,
-  };
 
   // Handles which query to be searched (uri, or product title)
-  queryString.indexOf(' ') !== -1 ? queryType = { title: queryString } : queryType;
+  stringOrUri(queryString) ? queryType = { title: queryString } : queryType = { uri: queryString };
 
   Item.findOne(queryType, function (err, docs) {
     if (err) {
