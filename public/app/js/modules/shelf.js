@@ -37,7 +37,7 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
       //=> {name: 'curly', age: 60};
 
       minOrMax: function (arr, type) {
-        _.type(arr, function (price) { return arr.price;  });
+        _.type(arr, function (price) { return arr.price; });
       },
 
       //var res = Math.min.apply(Math,arr.map(function(o){return o.price;}))
@@ -74,8 +74,8 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
             },
             y: {
               lines: [
-                  { value: this.minOrMax(obj.prices, "max"), text: 'Max Price', position: 'finish' },
-                  { value: this.minOrMax(obj.prices, "min"), text: 'Min Price', position: 'start' },
+                  { value: this.minOrMax(obj, "max"), text: 'Max Price', position: 'finish' },
+                  { value: this.minOrMax(obj, "min"), text: 'Min Price', position: 'start' },
               ],
               tick: {
                 format: d3.format(',.2f'),
