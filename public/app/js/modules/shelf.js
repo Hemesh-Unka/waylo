@@ -32,6 +32,10 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
 
       },
 
+      //var stooges = [{name: 'moe', age: 40}, {name: 'larry', age: 50}, {name: 'curly', age: 60}];
+      //_.max(stooges, function(stooge){ return stooge.age; });
+      //=> {name: 'curly', age: 60};
+
       afterRender: function () {
 
         var obj = this.model.attributes.prices;
@@ -56,17 +60,8 @@ define('js/modules/shelf', ['jquery', 'underscore', 'backbone', 'app', 'c3', 'd3
             },
             y: {
               lines: [
-                  { value: function (obj) {
-                    _.max(obj, function (price) {
-                      return arr.price;
-                    });
-                  }, text: 'Max Price', position: 'finish', },
-
-                  { value: function (obj) {
-                    _.min(obj, function (price) {
-                      return arr.price;
-                    });
-                  }, text: 'Min Price', position: 'start', },
+                { value: Math.max(...obj.map(elt => elt.price)), text: 'Max Price', position: 'finish' },
+                { value: Math.min(...arr.map(elt => elt.price)), text: 'Min Price', position: 'start' },
               ],
               tick: {
                 format: d3.format(',.2f'),
